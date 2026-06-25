@@ -1,114 +1,241 @@
-const skipBtn = document.getElementById("skip-btn-welcome-page");
-const menusSkip = document.getElementById("menus-skip");
+/* ============================================================
+   INDEX.JS — Infotell Landing Page
+   Página: index.html
+   ============================================================ */
 
-const sectionServicos = document.getElementById("servicos-welcome");
+'use strict';
 
-const sectionServicoCameras = document.getElementById("section-servicos-welcome-cameras");
-const sectionServicoEletrica = document.getElementById("section-servicos-welcome-eletrica");
-const sectionServicoPortoes = document.getElementById("section-servicos-welcome-portoes");
-const sectionServicoControleAcesso = document.getElementById("section-servicos-welcome-controle-acesso");
+// =====================
+// Dados dos Serviços
+// =====================
+const SERVICOS_DATA = {
+    cameras: {
+        tag: 'SOLUÇÃO COMPLETA',
+        titulo: 'Câmeras de Segurança',
+        descricao: 'Projetos personalizados, equipamentos de alta qualidade e instalação profissional para garantir monitoramento eficiente 24 horas por dia.',
+        features: [
+            'Câmeras HD e Full HD',
+            'Visão noturna e gravação em nuvem',
+            'Acesso remoto pelo celular',
+            'Instalação profissional e suporte técnico',
+        ],
+    },
+    alarmes: {
+        tag: 'PROTEÇÃO ATIVA',
+        titulo: 'Alarmes',
+        descricao: 'Sistemas de alarme modernos com sensores de alta sensibilidade, sirene, discagem automática e integração com câmeras para proteção completa.',
+        features: [
+            'Sensores de presença e abertura',
+            'Alarme com discagem automática',
+            'Monitoramento 24h',
+            'Integração com câmeras e controle de acesso',
+        ],
+    },
+    'controle-acesso': {
+        tag: 'ACESSO INTELIGENTE',
+        titulo: 'Controle de Acesso',
+        descricao: 'Soluções modernas de controle de acesso biométrico, cartão RFID e senha para residências, condomínios e empresas, garantindo segurança e praticidade.',
+        features: [
+            'Biometria digital e facial',
+            'Cartão RFID e senha eletrônica',
+            'Registro de entradas e saídas',
+            'Gerenciamento remoto de acessos',
+        ],
+    },
+    cerca: {
+        tag: 'PERÍMETRO SEGURO',
+        titulo: 'Cerca Elétrica',
+        descricao: 'Proteção perimetral com cerca elétrica de alta confiabilidade, com alarme sonoro, monitoramento integrado e manutenção preventiva garantida.',
+        features: [
+            'Eletrificadores de alta tensão',
+            'Alarme integrado ao painel',
+            'Proteção perimetral eficiente',
+            'Manutenção preventiva inclusa',
+        ],
+    },
+    portoes: {
+        tag: 'AUTOMAÇÃO RESIDENCIAL',
+        titulo: 'Automação de Portões',
+        descricao: 'Conforto e segurança com motores e automatizadores de alta performance para portões basculantes, deslizantes e de garagem.',
+        features: [
+            'Motores basculante e deslizante',
+            'Controle remoto e via app',
+            'Instalação rápida e garantia',
+            'Compatível com interfone e câmeras',
+        ],
+    },
+    eletrica: {
+        tag: 'PROJETOS ELÉTRICOS',
+        titulo: 'Instalações Elétricas',
+        descricao: 'Projetos elétricos residenciais e comerciais com qualidade, segurança e conformidade com as normas técnicas, da adequação à manutenção corretiva.',
+        features: [
+            'Projetos residenciais e comerciais',
+            'Adequação às normas ABNT',
+            'Quadros de distribuição e SPDA',
+            'Manutenção preventiva e corretiva',
+        ],
+    },
+};
 
-const imagensServicos = [...sectionServicos.querySelectorAll('img')];
-// serve para obter a ordem em que as imagens estavam antes de mudar para dentro das sections
-const proximosIrmaos = new Map();
-imagensServicos.forEach(img => {
-  proximosIrmaos.set(img, img.nextSibling);
+const SERVICOS_ORDER = ['cameras', 'alarmes', 'controle-acesso', 'cerca', 'portoes', 'eletrica'];
+
+let servicoAtivo = 'cameras';
+
+// =====================
+// Navbar
+// =====================
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('navbar-hamburger');
+const navbarNav = document.getElementById('navbar-nav');
+
+// Adiciona classe scrolled ao fazer scroll
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+        navbar.classList.add('navbar--scrolled');
+    } else {
+        navbar.classList.remove('navbar--scrolled');
+    }
+}, { passive: true });
+
+// Menu mobile
+hamburger.addEventListener('click', () => {
+    const isOpen = navbarNav.classList.toggle('navbar__nav--open');
+    hamburger.classList.toggle('navbar__hamburger--open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
 });
 
-const sections = [
-    sectionServicoCameras,
-    sectionServicoEletrica,
-    sectionServicoPortoes,
-    sectionServicoControleAcesso
-]; // só para excluir tudo de uma vez
-
-const mapaServicos = {
-  "cameras": sectionServicoCameras,
-  "eletrica": sectionServicoEletrica,
-  "portoes": sectionServicoPortoes,
-  "controle-acesso": sectionServicoControleAcesso
-}; // vincula cada imagem a uma section de descrição do serviço
-
-//==================
-// Area de serviços
-//==================
-function deleteGroups(groups) {    
-    groups.forEach(group => {
-        if (group) group.remove();
+// Fechar menu ao clicar em um link
+navbarNav.querySelectorAll('.navbar__link').forEach(link => {
+    link.addEventListener('click', () => {
+        navbarNav.classList.remove('navbar__nav--open');
+        hamburger.classList.remove('navbar__hamburger--open');
+        hamburger.setAttribute('aria-expanded', 'false');
     });
-};
+});
 
-let imagemAtiva = null; // guarda qual imagem está "expandida" no momento
+// =====================
+// Carousel de Serviços
+// =====================
+const painelConteudo = document.getElementById('painel-conteudo');
+const painelPanel = document.getElementById('painel-servico');
+const tabBtns = document.querySelectorAll('.servico-item[data-servico]');
+const prevBtn = document.getElementById('painel-prev-btn');
+const nextBtn = document.getElementById('painel-next-btn');
 
-function mostrarSectionServico(imagem) {
-    const section = mapaServicos[imagem.dataset.servico]; // pega "cameras", "eletrica", etc e busca a section certa no mapa
+/**
+ * Renderiza o painel de detalhe do serviço indicado.
+ * @param {string} chave — chave do objeto SERVICOS_DATA
+ */
+function renderizarPainel(chave) {
+    const dados = SERVICOS_DATA[chave];
+    if (!dados) return;
 
-    if (section) {
-        section.insertBefore(imagem, section.firstChild); //joga a imagem dentro da section
-        imagem.style.margin = '0 2rem 0.1rem 0';
-        sectionServicos.appendChild(section);
-    };
+    const featuresHTML = dados.features
+        .map(f => `<li class="painel__feature"><i class="fa-solid fa-check" aria-hidden="true"></i>${f}</li>`)
+        .join('');
 
-    // esconde as outras imagens
-    const outrasImagensServico = imagensServicos.filter(img => img !== imagem);
-    outrasImagensServico.forEach(img => {
-        img.style.display = 'none';
-    });
-    imagemAtiva = imagem;
-};
+    painelConteudo.innerHTML = `
+        <p class="painel__tag">${dados.tag}</p>
+        <h3 class="painel__titulo">${dados.titulo}</h3>
+        <p class="painel__descricao">${dados.descricao}</p>
+        <ul class="painel__features" aria-label="Características do serviço">
+            ${featuresHTML}
+        </ul>
+        <div class="painel__cta">
+            <a href="https://wa.me/5516988750149?text=Olá,%20tenho%20interesse%20em%20${encodeURIComponent(dados.titulo)}!"
+               class="btn btn--laranja"
+               target="_blank"
+               rel="noopener noreferrer"
+               id="painel-cta-btn">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                QUERO ESSA SOLUÇÃO
+            </a>
+        </div>
+    `;
 
-function restaurarServicos() {
-    // mostra todas as imagens de novo
-    imagensServicos.forEach(img => {
-        img.style.display = '';
-    });
+    // Reinicia animação de entrada
+    painelConteudo.style.animation = 'none';
+    // Força reflow
+    void painelConteudo.offsetHeight;
+    painelConteudo.style.animation = '';
 
-    // esconde/remove a section que estava aberta
-    const section = mapaServicos[imagemAtiva.dataset.servico];
-    if (section) {
-        sectionServicos.insertBefore(imagemAtiva, proximosIrmaos.get(imagemAtiva));
-        section.remove();
-    }
-
-    imagemAtiva = null;
+    // Atualiza aria-labelledby do tabpanel
+    painelPanel.setAttribute('aria-labelledby', `tab-${chave}`);
 }
 
-//================ rodando
-// Começa tirando todas as sections (descrição dos serviços)
-deleteGroups(sections);
+/**
+ * Ativa um serviço: destaca o botão da lista e renderiza o painel.
+ * @param {string} chave — chave do serviço
+ */
+function ativarServico(chave) {
+    if (chave === servicoAtivo) return;
 
-imagensServicos.forEach(imagem => {
-  imagem.addEventListener('click', () => {
-    if (imagemAtiva === imagem) {
-      // clicou na mesma imagem que já estava ativa → reverte
-      restaurarServicos(); // volta as imagens e exclui a section
-    } else {
-        mostrarSectionServico(imagem); // tira as outras imagens e add a section 
-    };
-  });
+    // Remove ativo do botão anterior
+    const tabAnterior = document.getElementById(`tab-${servicoAtivo}`);
+    if (tabAnterior) {
+        tabAnterior.classList.remove('servico-item--ativo');
+        tabAnterior.setAttribute('aria-selected', 'false');
+    }
+
+    // Ativa o novo
+    const tabNova = document.getElementById(`tab-${chave}`);
+    if (tabNova) {
+        tabNova.classList.add('servico-item--ativo');
+        tabNova.setAttribute('aria-selected', 'true');
+    }
+
+    servicoAtivo = chave;
+    renderizarPainel(chave);
+}
+
+// Clicks nos tabs da lista
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => ativarServico(btn.dataset.servico));
 });
 
-//================
-// Pular
-//================
-menusSkipLocation = [menusSkip.parentElement,menusSkip.nextSibling]
-menusSkip.remove();
-let optionMenuAtivo = false;
-
-skipBtn.addEventListener('click', () => {
-    if (optionMenuAtivo){
-        menusSkip.remove();;
-        optionMenuAtivo = false;
-        skipBtn.style.borderRadius = "10px";
-    }else{
-        optionMenuAtivo = true;
-        skipBtn.style.borderRadius = "4px";
-        menusSkipLocation[0].insertBefore(menusSkip, menusSkipLocation[1])
-    };
+// Navegação com prev/next
+prevBtn.addEventListener('click', () => {
+    const idx = SERVICOS_ORDER.indexOf(servicoAtivo);
+    const prevIdx = (idx - 1 + SERVICOS_ORDER.length) % SERVICOS_ORDER.length;
+    ativarServico(SERVICOS_ORDER[prevIdx]);
 });
 
+nextBtn.addEventListener('click', () => {
+    const idx = SERVICOS_ORDER.indexOf(servicoAtivo);
+    const nextIdx = (idx + 1) % SERVICOS_ORDER.length;
+    ativarServico(SERVICOS_ORDER[nextIdx]);
+});
 
-//================
-// Continuar vendo
-//================
+// Render inicial
+renderizarPainel(servicoAtivo);
 
+// =====================
+// Animações de entrada (IntersectionObserver)
+// =====================
+const fadeElements = document.querySelectorAll(
+    '.sobre__container, .servicos__container, .cta-banner__container, .diferenciais__container, .diferencial'
+);
+
+// Adiciona a classe base em todos os elementos
+fadeElements.forEach(el => {
+    el.classList.add('fade-in-up');
+});
+
+// Adiciona delays escalonados nos diferenciais
+document.querySelectorAll('.diferencial').forEach((el, i) => {
+    el.classList.add(`fade-in-up-delay-${i + 1}`);
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px',
+});
+
+fadeElements.forEach(el => observer.observe(el));
