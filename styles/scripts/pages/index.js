@@ -85,7 +85,7 @@ let servicoAtivo = 'cameras';
 // Navbar
 // =====================
 const navbar = document.getElementById('navbar');
-const hamburger = document.getElementById('navbar-hamburger');
+const hamburger = document.getElementById('navbar-services');
 const navbarNav = document.getElementById('navbar-nav');
 
 // Adiciona classe scrolled ao fazer scroll
@@ -100,7 +100,7 @@ window.addEventListener('scroll', () => {
 // Menu mobile
 hamburger.addEventListener('click', () => {
     const isOpen = navbarNav.classList.toggle('navbar__nav--open');
-    hamburger.classList.toggle('navbar__hamburger--open', isOpen);
+    hamburger.classList.toggle('navbar__services--open', isOpen);
     hamburger.setAttribute('aria-expanded', String(isOpen));
 });
 
@@ -108,7 +108,7 @@ hamburger.addEventListener('click', () => {
 navbarNav.querySelectorAll('.navbar__link').forEach(link => {
     link.addEventListener('click', () => {
         navbarNav.classList.remove('navbar__nav--open');
-        hamburger.classList.remove('navbar__hamburger--open');
+        hamburger.classList.remove('navbar__services--open');
         hamburger.setAttribute('aria-expanded', 'false');
     });
 });
