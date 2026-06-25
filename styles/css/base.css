@@ -1,0 +1,26 @@
+@charset 'UTF-8';
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /*variaveis*/
+    --color-intelbras: #06C53C;
+    --color-laranja: #fc960d;
+    --color-cinza-escuro: #303030;
+    --color-cinza-claro: #505050;
+    --color-intelbras-text: #02A54B;
+    
+    --fonte-moderna: 'MuseoModerno', 'sans-serif';
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}

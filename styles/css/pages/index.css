@@ -1,0 +1,158 @@
+body {
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    height: 100vh; 
+    margin: 0;
+    overflow: hidden;
+}
+
+.image-welcome-section {
+  height: 100vh;
+  overflow: hidden;     
+}
+/*
+.imagem-lateral {
+
+}*/
+.image-welcome-section > img.logo {
+    width: 4rem;
+    height: auto;
+    margin-right: 2rem;    
+}
+
+body > .segunda-coluna-entrence-page {
+  height: 100vh;
+  overflow-y: auto;
+  color-scheme: dark;     
+}
+
+.segunda-coluna-entrence-page img {
+    max-width: 50vh;
+}
+
+.entrence-page {
+    background-color: var(--color-cinza-escuro);
+    color: white;
+    padding-bottom: 4rem;
+}
+
+.entrence-page .skip-btn {
+    position: fixed;
+    right: 1.5rem;
+    top: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+    background-color: var(--color-intelbras);
+    font-family: var(--fonte-moderna);
+    font-size: 0.8rem;
+    color:white;
+}
+
+#menus-skip {
+    position:  absolute;
+    top: 2.6rem;
+    right: 1.3rem;
+    background-color: #8b8b8bc9;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+}
+
+#menus-skip a {
+    margin: auto;
+    padding: 3px;
+    line-height: 1.8rem;
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+}
+
+.welcome-section h1 {
+    text-align: center;
+    font-size: 4em;
+    padding: 1.25rem 1.25rem 0 1.25rem;
+    color: #ececec;
+}
+.welcome-section h2 {
+   text-align: center;
+    font-size: 1.5rem;
+    padding: 0 1.5rem 1rem 1.25rem; 
+    color: var(--color-laranja);
+}
+.entrence-page p {
+    max-width: 45rem;
+    font-size: 1.25rem;
+    margin: 2rem 3rem;
+    line-height: 2rem;
+}
+
+.areas-servicos-welcome-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4rem;
+    margin: 5rem;
+}
+
+.entrence-page .instrucao-icones-servico {
+    margin: 5rem auto -2rem auto;
+    font-size: 1.1em;
+    text-align: center;
+    color: lightgray;
+}
+
+.areas-servicos-welcome-page .imagem-redonda {
+    float: left;
+    border-radius: 100%;
+    width: 15rem;
+    height: 15rem;
+}
+
+.areas-servicos-welcome-page .imagem-redonda:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.section-servicos-welcome {
+    background-color: var(--color-cinza-claro);
+    padding: 2rem;
+    border-radius: 1rem;
+    grid-row: span 2;
+}
+
+.section-servicos-welcome h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 0.8rem;
+}
+
+.section-servicos-welcome p {
+    width: 37rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.next-btn {
+    display: block;
+    margin: 5rem auto 0 auto;
+    padding: 1rem;
+    font-size: 1.4em;
+    border-radius: 1rem;
+    background-color: var(--color-laranja);
+    color: rgb(37, 36, 36);
+}
+
+.footer-welcome-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.5rem 0;
+    background-color: lightgray;
+}
+
+.footer-welcome-page p {
+    margin: 0 2.2rem;
+}
+
+.footer-welcome-page h3 {
+    text-align: center;
+}
