@@ -40,7 +40,6 @@ const SERVICOS_DATA = {
             'Fechadura inteligente',
             'Biometria digital e facial',
             'Cartão RFID e senha eletrônica',
-            'Controle de entradas e saídas',
             'Gerenciamento remoto de acessos',
         ],
     },
@@ -58,9 +57,9 @@ const SERVICOS_DATA = {
     portoes: {
         tag: 'PRATICIDADE E SEGURANÇA',
         titulo: 'Automação de Portões',
-        descricao: 'Conforto e segurança com motores e automatizadores de alta performance para portões basculantes, deslizantes e de garagem.',
+        descricao: 'Conforto e segurança com motores e automatizadores de alta performance para portões basculantes, deslizantes',
         features: [
-            'Motores basculante e deslizante',
+            'Motores basculante e deslizante e pivotante',
             'Controle remoto e via app',
             'Instalação rápida e garantia',
             'Compatível com interfone e câmeras',
