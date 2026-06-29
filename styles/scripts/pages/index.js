@@ -48,10 +48,10 @@ const SERVICOS_DATA = {
         titulo: 'Casa Inteligente',
         descricao: 'Soluções inteligentes para todos os tipos de cenários, tranquildade e conforto ao alcance da sua mão.',
         features: [
-            'Para todos os tipos de ambientes',//parei aqui
-            'Alarme integrado ao painel',
-            'Proteção perimetral eficiente',
-            'Manutenção preventiva inclusa',
+            'Automatização completa',
+            'Alarme e câmeras integrados ao sistema',
+            'Integração com diferentes equipamentos',
+            'Qualidade e segurança intelbras',
         ],
     },
     portoes: {
@@ -61,8 +61,8 @@ const SERVICOS_DATA = {
         features: [
             'Motores basculante e deslizante e pivotante',
             'Controle remoto e via app',
-            'Instalação rápida e garantia',
-            'Compatível com interfone e câmeras',
+            'Instalação rápida e de qualidade',
+            'Manutenção preventiva e corretiva',
         ],
     },
     eletrica: {
@@ -72,8 +72,7 @@ const SERVICOS_DATA = {
         features: [
             'Projetos residenciais e comerciais',
             'Adequação às normas ABNT',
-            'Quadros de distribuição e SPDA',
-            'Manutenção preventiva e corretiva',
+            'Quadros de comandos',
         ],
     },
 };
