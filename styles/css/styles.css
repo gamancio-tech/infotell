@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-@import './base.css';
-@import './pages/index.css';
-@import './pages/home.css';
+@import 'base.css';
+@import 'pages/index.css';
+@import 'pages/home.css';
 
-
+@import 'components/buttons.css';

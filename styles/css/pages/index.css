@@ -14,123 +14,6 @@
 }
 
 /* Botões */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.85rem 1.6rem;
-    border-radius: 6px;
-    font-family: var(--fonte-corpo);
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-    white-space: nowrap;
-}
-
-.btn:hover {
-    transform: translateY(-1px);
-}
-
-.btn--laranja {
-    background-color: var(--color-laranja);
-    color: #fff;
-    border: 2px solid var(--color-laranja);
-}
-
-.btn--laranja:hover {
-    background-color: var(--color-laranja-hover);
-    border-color: var(--color-laranja-hover);
-}
-
-.btn--whatsapp {
-    background-color: var(--color-laranja);
-    color: #fff;
-    border: 2px solid var(--color-laranja);
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.8rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.65rem 1.2rem;
-    transition: background-color 0.2s ease, transform 0.15s ease;
-}
-
-.btn--whatsapp:hover {
-    background-color: var(--color-laranja-hover);
-    transform: translateY(-1px);
-}
-
-.btn--outline {
-    background-color: transparent;
-    color: var(--color-text-primary);
-    border: 2px solid var(--color-bg-border);
-}
-
-.btn--outline:hover {
-    border-color: #555;
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-.btn--outline-round {
-    background-color: transparent;
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-bg-border);
-    border-radius: 999px;
-    padding: 0.75rem 1.8rem;
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    font-weight: 600;
-    gap: 0.5rem;
-    display: inline-flex;
-    align-items: center;
-    text-transform: uppercase;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-}
-
-.btn--outline-round:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: #666;
-    transform: translateY(-1px);
-}
-
-.btn--outline-round i {
-    font-size: 0.75rem;
-}
-
-.btn--outline-square {
-    background-color: transparent;
-    color: var(--color-text-primary);
-    border: 1.5px solid var(--color-bg-border);
-    border-radius: 6px;
-    padding: 0.8rem 1.4rem;
-    font-size: 0.82rem;
-    letter-spacing: 0.07em;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-transform: uppercase;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-    margin-top: 1rem;
-    width: 100%;
-    justify-content: center;
-}
-
-.btn--outline-square:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: #666;
-    transform: translateY(-1px);
-}
-
-.btn--lg {
-    padding: 1rem 2rem;
-    font-size: 0.9rem;
-}
 
 /* Section tag decorator */
 .section-tag {
@@ -288,50 +171,33 @@
 .hero__overlay {
     position: absolute;
     inset: 0;
-<<<<<<< Updated upstream
+
     background: linear-gradient(
         to right,
-        rgba(13, 13, 13, 0.25) 0%,
-        rgba(13, 13, 13, 0.6) 40%,
-        rgba(13, 13, 13, 0.97) 50%,
+        rgba(13, 13, 13, 0.2) 0%,
+        rgba(13, 13, 13, 0.3) 44%,
+        rgba(13, 13, 13, 0.75) 48%,
+        rgba(13, 13, 13, 0.93) 53%,
         rgba(13, 13, 13, 1) 100%
     );
-=======
-    background: linear-gradient(to right,
-            rgba(13, 13, 13, 0.25) 0%,
-            rgba(13, 13, 13, 0.6) 40%,
-            rgba(13, 13, 13, 0.97) 62%,
-            rgba(13, 13, 13, 1) 100%);
->>>>>>> Stashed changes
+
 }
 
 .hero__content {
     position: relative;
     z-index: 1;
     margin-left: auto;
-<<<<<<< Updated upstream
     width: 70%;
-=======
-    width: 80%;
->>>>>>> Stashed changes
     padding: 8rem 3.5rem 6rem 2rem;
     max-width: 1000px;
 }
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 .hero__tag,
 .hero__title,
 .hero__description,
 .hero__actions {
     max-width: 680px;
-<<<<<<< Updated upstream
     margin-left: 30%;
-=======
-    margin-left: auto;
->>>>>>> Stashed changes
 }
 
 .hero__tag {
@@ -388,18 +254,25 @@
     align-items: center;
     gap: 0;
     flex-wrap: wrap;
+    background: linear-gradient(
+        to right,
+        rgba(13, 13, 13, 0.1) 0%,
+        rgba(13, 13, 13, 0.4) 100%
+    );
+    padding: 0.4rem;
+    border-radius: 0.5rem;
 }
 
 .hero__intelbras {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
-    padding-right: 2rem;
+    padding-right: 1rem;
 }
 
 .hero__intelbras-label {
     font-size: 0.72rem;
-    color: var(--color-text-muted);
+    color: white;
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }

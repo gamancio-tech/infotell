@@ -14,47 +14,49 @@ const SERVICOS_DATA = {
         titulo: 'Câmeras de Segurança',
         descricao: 'Projetos personalizados, equipamentos de alta qualidade e instalação profissional para garantir monitoramento eficiente 24 horas por dia.',
         features: [
-            'Câmeras HD e Full HD',
-            'Visão noturna e gravação em nuvem',
-            'Acesso remoto pelo celular',
+            'Câmeras IP e Full HD',
+            'Gravação em nuvem',
+            'Acesso remoto via app',
+            'Para todos os ambientes',
+            'Melhor custo beneficio',
             'Instalação profissional e suporte técnico',
         ],
     },
     alarmes: {
         tag: 'PROTEÇÃO ATIVA',
         titulo: 'Alarmes',
-        descricao: 'Sistemas de alarme modernos com sensores de alta sensibilidade, sirene, discagem automática e integração com câmeras para proteção completa.',
+        descricao: 'Sistemas de alarme de última geração com sensores de alta sensibilidade, sirenes, integração com câmeras para proteção completa.',
         features: [
-            'Sensores de presença e abertura',
-            'Alarme com discagem automática',
-            'Monitoramento 24h',
+            'Monitoramento 24h via app',
+            'Todos os tipos de sensores',
             'Integração com câmeras e controle de acesso',
         ],
     },
     'controle-acesso': {
         tag: 'ACESSO INTELIGENTE',
         titulo: 'Controle de Acesso',
-        descricao: 'Soluções modernas de controle de acesso biométrico, cartão RFID e senha para residências, condomínios e empresas, garantindo segurança e praticidade.',
+        descricao: 'Soluções modernas de controle de acesso facial, biométrico, cartão RFID e senha, entre outros, para residências, condomínios e empresas, garantindo segurança e praticidade.',
         features: [
+            'Fechadura inteligente',
             'Biometria digital e facial',
             'Cartão RFID e senha eletrônica',
-            'Registro de entradas e saídas',
+            'Controle de entradas e saídas',
             'Gerenciamento remoto de acessos',
         ],
     },
-    cerca: {
-        tag: 'PERÍMETRO SEGURO',
-        titulo: 'Cerca Elétrica',
-        descricao: 'Proteção perimetral com cerca elétrica de alta confiabilidade, com alarme sonoro, monitoramento integrado e manutenção preventiva garantida.',
+    'casa-inteligente': {
+        tag: 'SEGURANÇA SMART',
+        titulo: 'Casa Inteligente',
+        descricao: 'Soluções inteligentes para todos os tipos de cenários, tranquildade e conforto ao alcance da sua mão.',
         features: [
-            'Eletrificadores de alta tensão',
+            'Para todos os tipos de ambientes',//parei aqui
             'Alarme integrado ao painel',
             'Proteção perimetral eficiente',
             'Manutenção preventiva inclusa',
         ],
     },
     portoes: {
-        tag: 'AUTOMAÇÃO RESIDENCIAL',
+        tag: 'PRATICIDADE E SEGURANÇA',
         titulo: 'Automação de Portões',
         descricao: 'Conforto e segurança com motores e automatizadores de alta performance para portões basculantes, deslizantes e de garagem.',
         features: [
@@ -77,7 +79,7 @@ const SERVICOS_DATA = {
     },
 };
 
-const SERVICOS_ORDER = ['cameras', 'alarmes', 'controle-acesso', 'cerca', 'portoes', 'eletrica'];
+const SERVICOS_ORDER = ['cameras', 'alarmes', 'controle-acesso', 'casa-inteligente', 'portoes', 'eletrica'];
 
 let servicoAtivo = 'cameras';
 
