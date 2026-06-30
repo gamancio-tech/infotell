@@ -115,3 +115,10 @@
     padding: 1rem 2rem;
     font-size: 0.9rem;
 }
+
+@media (max-width: 340px) {
+    .btn--lg {
+        padding: 1rem 0;
+        font-size: 0.8rem;
+    }
+}

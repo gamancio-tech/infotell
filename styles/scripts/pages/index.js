@@ -85,7 +85,7 @@ let servicoAtivo = 'cameras';
 // Navbar
 // =====================
 const navbar = document.getElementById('navbar');
-const hamburger = document.getElementById('navbar-services');
+const servicesNav = document.getElementById('navbar-services');
 const navbarNav = document.getElementById('navbar-nav');
 
 // Adiciona classe scrolled ao fazer scroll
@@ -98,18 +98,18 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // Menu mobile
-hamburger.addEventListener('click', () => {
+servicesNav.addEventListener('click', () => {
     const isOpen = navbarNav.classList.toggle('navbar__nav--open');
-    hamburger.classList.toggle('navbar__services--open', isOpen);
-    hamburger.setAttribute('aria-expanded', String(isOpen));
+    servicesNav.classList.toggle('navbar__services--open', isOpen);
+    servicesNav.setAttribute('aria-expanded', String(isOpen));
 });
 
 // Fechar menu ao clicar em um link
 navbarNav.querySelectorAll('.navbar__link').forEach(link => {
     link.addEventListener('click', () => {
         navbarNav.classList.remove('navbar__nav--open');
-        hamburger.classList.remove('navbar__services--open');
-        hamburger.setAttribute('aria-expanded', 'false');
+        servicesNav.classList.remove('navbar__services--open');
+        servicesNav.setAttribute('aria-expanded', 'false');
     });
 });
 
@@ -196,7 +196,7 @@ tabBtns.forEach(btn => {
 // Navegação com prev/next
 prevBtn.addEventListener('click', () => {
     const idx = SERVICOS_ORDER.indexOf(servicoAtivo);
-    const prevIdx = (idx - 1 + SERVICOS_ORDER.length) % SERVICOS_ORDER.length;
+    const prevIdx = (idx - 1 + SERVICOS_ORDER.length) % SERVICOS_ORDER.length; // deixa circular (conecta o anterior do primeiro ao último)
     ativarServico(SERVICOS_ORDER[prevIdx]);
 });
 
@@ -226,6 +226,7 @@ document.querySelectorAll('.diferencial').forEach((el, i) => {
     el.classList.add(`fade-in-up-delay-${i + 1}`);
 });
 
+// Ir aparecendo as seções ao rolar
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
