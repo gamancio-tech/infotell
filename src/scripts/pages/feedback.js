@@ -80,6 +80,43 @@ form.querySelectorAll('.btn-step--back').forEach((btn) => {
     });
 });
 
+// Outro Service toggle logic
+const checkboxOutro = document.getElementById('checkbox-outro');
+const otherServiceContainer = document.getElementById('other-service-container');
+if (checkboxOutro && otherServiceContainer) {
+    checkboxOutro.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            otherServiceContainer.style.display = 'block';
+        } else {
+            otherServiceContainer.style.display = 'none';
+            // Optional: clear input if user unchecks it
+            const input = otherServiceContainer.querySelector('input');
+            if (input) input.value = '';
+        }
+    });
+}
+
+// News Email toggle logic
+const newsRadios = form.querySelectorAll('input[name="fi-text-receive_news"]');
+const emailContainer = document.getElementById('email-container');
+if (newsRadios.length > 0 && emailContainer) {
+    newsRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const input = emailContainer.querySelector('input');
+            if (e.target.value === 'sim' || e.target.value === 'depois') {
+                emailContainer.style.display = 'block';
+                if (input) input.required = true;
+            } else {
+                emailContainer.style.display = 'none';
+                if (input) {
+                    input.required = false;
+                    input.value = '';
+                }
+            }
+        });
+    });
+}
+
 // Satisfaction conditional feedback
 const satisfactionRadios = form.querySelectorAll('input[name="fi-text-satisfaction"]');
 const satisfactionBox = document.getElementById('satisfaction-feedback-box');

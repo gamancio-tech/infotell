@@ -4,7 +4,7 @@
 // Escrita uma única vez aqui — nenhuma página precisa copiar este HTML.
 
 interface Props {
-	activePage?: 'inicio' | 'servicos' | 'sobre' | 'projetos' | 'contato' | 'feedback';
+	activePage?: 'inicio' | 'servicos' | 'sobre' | 'projetos' | 'contato';
 }
 
 const { activePage } = Astro.props;
@@ -15,7 +15,6 @@ const links = [
 	{ href: '/conheca', label: 'Sobre', key: 'sobre' },
 	{ href: '/#projetos', label: 'Projetos', key: 'projetos' },
 	{ href: '/#contato', label: 'Contato', key: 'contato' },
-	{ href: '/feedback', label: 'Feedback', key: 'feedback' }, // temporário
 ];
 
 const whatsappHref = 'https://wa.me/5516988750149?text=Olá,%20gostaria%20de%20um%20atendimento!';

@@ -416,14 +416,21 @@
 }
 
 .service-card__icon {
-    font-size: 2rem;
-    color: var(--color-text-primary);
-    margin-bottom: 0.8rem;
-    transition: color 0.2s;
+    font-size: 2.2rem;
+    color: var(--color-laranja);
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s;
 }
 
-.service-card:has(input:checked) .service-card__icon {
-    color: var(--color-laranja);
+.service-card:hover .service-card__icon {
+    transform: scale(1.05);
+}
+
+.service-card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-card__label {
@@ -997,5 +1004,99 @@
     }
     .thanks-actions {
         flex-direction: column;
+    }
+
+    /* Novos ajustes para passos recentes */
+    .radio-option {
+        padding: 1rem;
+        gap: 0.8rem;
+    }
+    .radio-option__label {
+        font-size: 0.9rem;
+    }
+
+    .team-rating-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+    }
+    .team-rating-card__content {
+        padding: 1rem 0.5rem;
+    }
+    .team-rating-card__icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .relationship-card__header {
+        margin-bottom: 1rem;
+    }
+    .relationship-card__title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .rating-buttons {
+        gap: 0;
+    }
+    .rating-btn__label {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+    
+    .team-rating-grid {
+        grid-template-columns: 1fr;
+    }
+    .team-rating-card__content {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+    }
+    .team-rating-card__icon {
+        margin-bottom: 0;
+        font-size: 1.8rem;
+    }
+    
+    .radio-option {
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.1rem;
+    }
+    .service-card__icon {
+        font-size: 1.5rem;
+    }
+    .service-card__label {
+        font-size: 0.8rem;
+    }
+    .feedback-step__title {
+        font-size: 1.3rem;
+    }
+    .feedback-step__subtitle {
+        font-size: 0.85rem;
+    }
+    .rating-btn__label {
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+    .rating-emoji {
+        font-size: 1.5rem;
+    }
+    .btn-step {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+    .team-rating-card__icon {
+        font-size: 1.5rem;
+    }
+    .team-rating-card__content {
+        padding: 0.8rem 1rem;
     }
 }

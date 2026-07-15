@@ -2,6 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import FeedbackStep from '../components/FeedbackStep.astro';
+
+const whatsHref = "https://wa.me/5516988750149?text=Olá,%20gostaria%20de%20um%20atendimento!"
+const instaHref = "https://www.instagram.com/infotellfranca_/"
 ---
 
 <BaseLayout>
@@ -115,12 +118,20 @@ import FeedbackStep from '../components/FeedbackStep.astro';
                     </div>
                 </label>
                 <label class="service-card">
-                    <input type="checkbox" name="fi-text-services" value="outro" class="sr-only" />
+                    <input type="checkbox" name="fi-text-services" value="outro" id="checkbox-outro" class="sr-only" />
                     <div class="service-card__content">
                         <i class="fa-solid fa-ellipsis service-card__icon"></i>
                         <span class="service-card__label">Outro serviço</span>
                     </div>
                 </label>
+            </div>
+
+            <div id="other-service-container" class="field feedback-step__input-group" style="display: none; margin-top: 1.5rem;">
+                <label for="otherService" class="sr-only">Qual outro serviço?</label>
+                <div class="input-wrapper">
+                    <input type="text" id="otherService" name="fi-text-other_service" placeholder="Qual outro serviço?" />
+                    <i class="fa-solid fa-pen input-icon"></i>
+                </div>
             </div>
         </FeedbackStep>
 
@@ -250,6 +261,14 @@ import FeedbackStep from '../components/FeedbackStep.astro';
                             <span class="radio-option__label">Não tenho interesse</span>
                         </label>
                     </div>
+                    
+                    <div id="email-container" class="field feedback-step__input-group" style="display: none; margin-top: 1rem;">
+                        <label for="newsEmail" class="sr-only">E-mail</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="newsEmail" name="fi-sender-email" placeholder="Digite seu e-mail" />
+                            <i class="fa-regular fa-envelope input-icon"></i>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="relationship-card">
@@ -300,7 +319,9 @@ import FeedbackStep from '../components/FeedbackStep.astro';
     </main>
 
     <div id="thanks-section" style="display: none;">
-        <Hero>
+        <Hero
+            showArrow = {false}
+        >
             <div id="step-thanks" class="feedback-thanks">
         <div class="feedback-thanks__header">
             <div class="feedback-thanks__icon-wrapper">
@@ -337,15 +358,14 @@ import FeedbackStep from '../components/FeedbackStep.astro';
                 <h3 class="thanks-section__title">Acompanhe a Infotell</h3>
                 <p class="thanks-section__desc">Siga nossas redes sociais e fique por dentro de novidades e dicas de segurança.</p>
                 <div class="thanks-social">
-                    <a href="#" class="thanks-social__link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="thanks-social__link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="thanks-social__link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href={instaHref} target="_blank" rel="noopener noreferrer" class="thanks-social__link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href={whatsHref} target="_blank" rel="noopener noreferrer" class="thanks-social__link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
                 <div class="thanks-actions">
                     <a href="/" class="btn-step btn-step--outline">
                         <i class="fa-solid fa-house"></i> VOLTAR AO SITE
                     </a>
-                    <a href="https://wa.me/5516988750149?text=Olá,%20gostaria%20de%20um%20atendimento!" target="_blank" rel="noopener noreferrer" class="btn-step btn-step--next">
+                    <a href={whatsHref} target="_blank" rel="noopener noreferrer" class="btn-step btn-step--next">
                         <i class="fa-brands fa-whatsapp"></i> FALAR NO WHATSAPP
                     </a>
                 </div>
