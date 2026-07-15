@@ -1,0 +1,331 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+
+const whatsappHref = (msg: string) =>
+  `https://wa.me/5516988750149?text=${encodeURIComponent(msg)}`;
+---
+
+<BaseLayout>
+  <Navbar activePage="inicio" />
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+	<Hero>
+		<div class="hero__top">
+			<p class="hero__tag">
+			<span class="hero__tag-line" aria-hidden="true"></span>
+			PROTEGEMOS O QUE É IMPORTANTE PARA VOCÊ
+			</p>
+
+			<h1 class="hero__title a">
+			Soluções em <br />
+			<span class="hero__title--highlight"
+				>segurança eletrônica,<br />tecnologia e elétrica</span
+			>
+			<br />para residências,<br />condomínios e empresas.
+			</h1>
+
+			<p class="hero__description">
+			Há mais de 10 anos oferecendo instalação profissional, equipamentos de
+			alta qualidade e atendimento técnico especializado em Franca e região.
+			</p>
+
+			<div class="hero__actions">
+			<a href="#contato" class="btn btn--laranja" id="hero-orcamento-btn">
+				<i class="fa-solid fa-file-invoice" aria-hidden="true"></i>
+				SOLICITAR ORÇAMENTO
+			</a>
+			<a
+				href={whatsappHref("Olá, gostaria de um atendimento!")}
+				class="btn btn--outline"
+				target="_blank"
+				rel="noopener noreferrer"
+				id="hero-whatsapp-btn"
+			>
+				<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+				FALAR NO WHATSAPP
+			</a>
+			</div>
+		</div>
+		
+        <div class="hero__bottom">
+          <div class="hero__intelbras">
+            <span class="hero__intelbras-label">Revenda autorizada</span>
+            <span class="hero__intelbras-brand">intelbras</span>
+          </div>
+
+          <div class="hero__divider" aria-hidden="true"></div>
+
+          <div class="hero__stats" role="list" aria-label="Números da Infotell">
+            <div class="hero__stat" role="listitem">
+              <strong class="hero__stat-number">10+</strong>
+              <span class="hero__stat-label">Anos de mercado</span>
+            </div>
+            <div class="hero__stat" role="listitem">
+              <strong class="hero__stat-number">25+</strong>
+              <span class="hero__stat-label">Anos de experiência</span>
+            </div>
+            <div class="hero__stat" role="listitem">
+              <strong class="hero__stat-number">10.000+</strong>
+              <span class="hero__stat-label">Câmeras instaladas</span>
+            </div>
+            <div class="hero__stat" role="listitem">
+              <strong class="hero__stat-number">500+</strong>
+              <span class="hero__stat-label">Clientes atendidos</span>
+            </div>
+          </div>
+        </div>
+	</Hero>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="sobre__container">
+        <p class="section-tag">
+          <span class="section-tag__line" aria-hidden="true"></span>
+          CONHEÇA A INFOTELL
+          <span class="section-tag__line" aria-hidden="true"></span>
+        </p>
+
+        <h2 class="sobre__title" id="sobre-titulo">
+          Mais que instalação, entregamos tranquilidade.
+        </h2>
+
+        <p class="sobre__description">
+          Tecnologia, experiência e compromisso para oferecer as melhores
+          soluções em segurança eletrônica, controle de acesso, automação e
+          serviços elétricos.
+        </p>
+
+        <a
+          href="/conheca"
+          class="btn btn--outline-round"
+          id="sobre-historia-btn"
+        >
+          EXPLORAR NOSSA HISTÓRIA
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== SERVIÇOS ===================== -->
+    <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">
+      <h2 class="sr-only" id="servicos-titulo">Nossos Serviços</h2>
+
+      <div class="servicos__container">
+        <aside
+          class="servicos__lista"
+          role="tablist"
+          aria-label="Lista de serviços"
+        >
+          <button
+            class="servico-item servico-item--ativo"
+            id="tab-cameras"
+            role="tab"
+            aria-selected="true"
+            aria-controls="painel-servico"
+            data-servico="cameras"
+          >
+            <div class="servico-item__icon" aria-hidden="true">
+              <i class="fa-solid fa-video"></i>
+            </div>
+            <div class="servico-item__info">
+              <strong class="servico-item__nome">Câmeras de Segurança</strong>
+              <span class="servico-item__desc"
+                >Proteção contra invasões e situações de risco.</span
+              >
+            </div>
+          </button>
+
+          <button
+            class="servico-item servico-item"
+            id="tab-alarmes"
+            role="tab"
+            aria-selected="false"
+            aria-controls="painel-servico"
+            data-servico="alarmes"
+          >
+            <div class="servico-item__icon" aria-hidden="true">
+              <i class="fa-solid fa-bell"></i>
+            </div>
+            <div class="servico-item__info">
+              <strong class="servico-item__nome">Alarmes</strong>
+              <span class="servico-item__desc"
+                >Proteção contra invasões e situações de risco.</span
+              >
+            </div>
+          </button>
+
+          <button
+            class="servico-item"
+            id="tab-controle-acesso"
+            role="tab"
+            aria-selected="false"
+            aria-controls="painel-servico"
+            data-servico="controle-acesso"
+          >
+            <div class="servico-item__icon" aria-hidden="true">
+              <i class="fa-solid fa-fingerprint"></i>
+            </div>
+            <div class="servico-item__info">
+              <strong class="servico-item__nome">Controle de Acesso</strong>
+              <span class="servico-item__desc"
+                >Mais segurança e praticidade para ambientes residenciais e
+                corporativos.</span
+              >
+            </div>
+          </button>
+
+          <button
+            class="servico-item"
+            id="tab-casa-inteligente"
+            role="tab"
+            aria-selected="false"
+            aria-controls="painel-servico"
+            data-servico="casa-inteligente"
+          >
+            <div class="servico-item__icon" aria-hidden="true">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="servico-item__info">
+              <strong class="servico-item__nome">Casa Inteligente</strong>
+              <span class="servico-item__desc"
+                >Soluções inteligentes para todos os tipos de cenários.</span
+              >
+            </div>
+          </button>
+
+          <button
+            class="servico-item"
+            id="tab-portoes"
+            role="tab"
+            aria-selected="false"
+            aria-controls="painel-servico"
+            data-servico="portoes"
+          >
+            <div class="servico-item__icon" aria-hidden="true">
+              <i class="fa-solid fa-door-open"></i>
+            </div>
+            <div class="servico-item__info">
+              <strong class="servico-item__nome">Automação de Portões</strong>
+              <span class="servico-item__desc"
+                >Conforto e segurança com motores e automatizadores.</span
+              >
+            </div>
+          </button>
+
+          <button
+            class="servico-item"
+            id="tab-eletrica"
+            role="tab"
+            aria-selected="false"
+            aria-controls="painel-servico"
+            data-servico="eletrica"
+          >
+            <div class="servico-item__icon" aria-hidden="true">
+              <i class="fa-solid fa-plug"></i>
+            </div>
+            <div class="servico-item__info">
+              <strong class="servico-item__nome">Instalações Elétricas</strong>
+              <span class="servico-item__desc"
+                >Projetos, adequações e manutenção com segurança e qualidade.</span
+              >
+            </div>
+          </button>
+
+          <a
+            href="#contato"
+            class="btn btn--outline-square"
+            id="servicos-ver-todos-btn"
+          >
+            <i class="fa-solid fa-grip" aria-hidden="true"></i>
+            VER TODOS OS SERVIÇOS
+          </a>
+        </aside>
+
+        <!-- Imagem central -->
+        <div class="servicos__imagem-central" aria-hidden="true">
+          <div class="servicos__img-placeholder">
+            <img
+              id="painel-imagem"
+              src="/images/index/secao-cameras.png"
+              alt="Câmera de segurança Intelbras instalada"
+              class="servicos__img"
+            />
+          </div>
+        </div>
+
+        <!-- Painel de detalhe do serviço -->
+        <div
+          class="servicos__painel"
+          id="painel-servico"
+          role="tabpanel"
+          aria-labelledby="tab-cameras"
+        >
+          <button
+            class="painel__nav painel__nav--prev"
+            id="painel-prev-btn"
+            aria-label="Serviço anterior"
+          >
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+          <button
+            class="painel__nav painel__nav--next"
+            id="painel-next-btn"
+            aria-label="Próximo serviço"
+          >
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+
+          <div class="painel__conteudo" id="painel-conteudo">
+            <!-- Preenchido via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA BANNER ===================== -->
+    <section class="cta-banner" id="contato" aria-labelledby="cta-titulo">
+      <div class="cta-banner__container">
+        <div class="cta-banner__info">
+          <div class="cta-banner__icon" aria-hidden="true">
+            <i class="fa-regular fa-calendar-check"></i>
+          </div>
+          <div class="cta-banner__text">
+            <p class="cta-banner__tag">ATENDIMENTO ESPECIALIZADO</p>
+            <h2 class="cta-banner__title" id="cta-titulo">
+              Fale com um especialista<br />e receba uma visita técnica.
+            </h2>
+          </div>
+        </div>
+
+        <div class="cta-banner__actions">
+          <a
+            href={whatsappHref("Olá, gostaria de agendar uma visita técnica!")}
+            class="btn btn--laranja btn--lg"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="cta-whatsapp-btn"
+          >
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            CHAMAR NO WHATSAPP
+          </a>
+          <a
+            href="tel:+5516988750149"
+            class="btn btn--outline btn--lg"
+            id="cta-ligar-btn"
+          >
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            LIGAR AGORA
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script src="../scripts/pages/index.js"></script>
+</BaseLayout>

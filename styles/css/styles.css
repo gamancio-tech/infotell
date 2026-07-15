@@ -1,9 +1,0 @@
-@charset "UTF-8";
-
-@import 'base.css';
-@import 'pages/index.css';
-@import 'pages/conheca.css';
-
-@import 'components/buttons.css';
-
-@import 'animation.css'

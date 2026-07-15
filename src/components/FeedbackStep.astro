@@ -1,0 +1,71 @@
+---
+// src/components/FeedbackStep.astro
+interface Props {
+  step?: number;
+  totalSteps?: number;
+  title: string;
+  subtitle?: string;
+  id: string;
+  showBack?: boolean;
+  nextButtonText?: string;
+  hideProgress?: boolean;
+}
+
+const {
+  step = 1,
+  totalSteps = 5,
+  title,
+  subtitle,
+  id,
+  showBack = true,
+  nextButtonText = "CONTINUAR",
+  hideProgress = false,
+} = Astro.props;
+
+const progressWidth = ((step - 1) / (totalSteps - 1)) * 100;
+---
+
+<div class="feedback-step" id={id} style="display: none;">
+  {!hideProgress && (
+    <div class="feedback-step__header">
+      <div class="feedback-step__progress-title">AVALIAÇÃO INFOTELL</div>
+      <div class="feedback-step__progress-bar">
+        <div class="feedback-step__progress-line-bg">
+          <div class="feedback-step__progress-line-fill" style={`width: ${progressWidth}%`}></div>
+        </div>
+        <div class="feedback-step__progress-dots">
+          {Array.from({ length: totalSteps }).map((_, index) => (
+            <span class={`feedback-step__dot ${index < step ? 'active' : ''}`}></span>
+          ))}
+        </div>
+      </div>
+      <div class="feedback-step__step-label">Etapa {step} de {totalSteps}</div>
+    </div>
+  )}
+
+  <div class="feedback-step__body">
+    <h2 class="feedback-step__title">{title}</h2>
+    {subtitle && <p class="feedback-step__subtitle">{subtitle}</p>}
+    
+    <div class="feedback-step__content">
+      <slot />
+    </div>
+  </div>
+
+  <div class="feedback-step__footer">
+    <div class="feedback-step__actions">
+      {showBack && (
+        <button type="button" class="btn-step btn-step--back">
+          <i class="fa-solid fa-arrow-left"></i> VOLTAR
+        </button>
+      )}
+      <button type="button" class="btn-step btn-step--next">
+        {nextButtonText} <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+    <div class="feedback__security">
+      <i class="fa-solid fa-lock"></i>
+      <span>Seus dados estão seguros conosco.</span>
+    </div>
+  </div>
+</div>

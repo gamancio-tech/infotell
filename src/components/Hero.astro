@@ -1,0 +1,41 @@
+---
+// src/components/Hero.astro
+// Hero de inicio
+// Reutilizavel em todas as páginas
+// Composto por formato de imagem lateral e hero contents
+
+interface Props {
+	heroClass?: string;
+    showArrow?: boolean;
+}
+
+const heroBgImgSrc = "/images/index/camera-img-lateral.png";
+const heroBgImgAlt = "Câmera de segurança Intelbras instalada em fachada";
+const { heroClass, showArrow } = Astro.props;
+const displayArrow = showArrow === false?'display: none;':'';
+---
+
+<section class={`hero ${heroClass || ''}`} id="inicio" aria-label="Apresentação da Infotell">
+    <div class="hero__bg-image">
+    <img
+        src={heroBgImgSrc}
+        alt={heroBgImgAlt}
+        class="hero__camera-img"
+    />
+    <div class="hero__overlay" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero__content">
+        <slot />
+    </div>
+
+    <a
+    href="#sobre"
+    class="hero__scroll-arrow"
+    id="hero-scroll-btn"
+    aria-label="Rolar para próxima seção"
+    style={displayArrow}
+    >
+    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+    </a>
+</section>

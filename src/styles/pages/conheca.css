@@ -1,0 +1,574 @@
+/* ============================================================
+   CONHECA.CSS — Página "Conheça a Infotell"
+   Experiência narrativa em scroll: cenas de tela cheia com
+   pouquíssimo texto, timeline animada, números e galeria.
+   ============================================================ */
+
+.conheca {
+	overflow-x: hidden;
+}
+
+/* ===================== PLACEHOLDER DE FOTO ===================== */
+.cena__placeholder {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+	background: repeating-linear-gradient(135deg, #1a1a1a, #1a1a1a 14px, #1e1e1e 14px, #1e1e1e 28px);
+	border: 1px dashed var(--color-bg-border);
+	color: var(--color-text-muted);
+	text-align: center;
+	padding: 2rem;
+}
+
+.cena__placeholder i {
+	font-size: 1.6rem;
+	color: var(--color-text-muted);
+}
+
+.cena__placeholder span {
+	font-size: 0.85rem;
+	max-width: 260px;
+	line-height: 1.4;
+}
+
+/* ===================== CENA (base para as cenas cinematográficas) ===================== */
+.cena {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background-color: var(--color-bg-dark);
+}
+
+.cena__bg {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+.cena__bg img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.cena__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background: linear-gradient(
+		to bottom, 
+		rgba(13, 13, 13, 0.35) 0%, 
+		rgba(13, 13, 13, 0.55) 55%, 
+		rgba(13, 13, 13, 0.92) 100%
+	);
+}
+
+.cena__texto {
+	position: relative;
+	z-index: 2;
+	max-width: 900px;
+	padding: 0 2rem;
+	text-align: center;
+	font-family: var(--fonte-titulo);
+	font-weight: 700;
+	font-size: clamp(1.8rem, 5vw, 3.4rem);
+	line-height: 1.25;
+	color: var(--color-text-primary);
+	opacity: 0;
+	transform: translateY(32px);
+}
+
+.cena__texto span {
+	color: var(--color-laranja);
+}
+
+/* ===================== CENA INTRO (abertura tipo trailer) ===================== */
+.cena--intro {
+	background-color: #0d0d0d;
+}
+
+.cena--intro .cena__tag {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	color: var(--color-laranja);
+	text-transform: uppercase;
+	margin-bottom: 1.5rem;
+	justify-content: center;
+	opacity: 0;
+}
+
+.cena--intro__wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cena--intro .cena__scroll-cue {
+	position: absolute;
+	bottom: 2.5rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+	color: var(--color-text-secondary);
+	font-size: 1.2rem;
+	animation: cena-bounce 2s ease-in-out infinite;
+}
+
+@keyframes cena-bounce {
+	0%, 100% { transform: translateX(-50%) translateY(0); }
+	50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===================== COMPROMISSO (4 passos) ===================== */
+.compromisso {
+	background-color: var(--color-bg-mid);
+	padding: 6rem 2rem;
+	border-top: 1px solid var(--color-bg-border);
+	border-bottom: 1px solid var(--color-bg-border);
+}
+
+.compromisso__container {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.compromisso__titulo {
+	font-family: var(--fonte-titulo);
+	font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.compromisso__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem;
+}
+
+.compromisso__card {
+	background-color: var(--color-bg-card);
+	border: 1px solid var(--color-bg-border);
+	border-radius: 12px;
+	padding: 1.75rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.compromisso__numero {
+	font-family: var(--fonte-titulo);
+	font-size: 1.4rem;
+	color: var(--color-laranja);
+	font-weight: 700;
+}
+
+.compromisso__card h3 {
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--color-text-primary);
+}
+
+.compromisso__card p {
+	font-size: 0.88rem;
+	color: var(--color-text-secondary);
+	line-height: 1.6;
+}
+
+/* ===================== TIMELINE (pinada, sincronizada ao scroll) ===================== */
+.timeline {
+	position: relative;
+	background-color: var(--color-bg-dark);
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	padding: 2rem;
+}
+
+.timeline__inner {
+	width: 100%;
+	max-width: 1000px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3.5rem;
+}
+
+.timeline__label {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-laranja);
+	text-align: center;
+}
+
+.timeline__track {
+	position: relative;
+	width: 100%;
+	max-width: 720px;
+	height: 2px;
+	background-color: var(--color-bg-border);
+	border-radius: 2px;
+}
+
+.timeline__fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0%;
+	background-color: var(--color-laranja);
+	border-radius: 2px;
+	transition: width 0.1s linear;
+}
+
+.timeline__dots {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.timeline__dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: var(--color-bg-border);
+	transform: translateY(0);
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.timeline__dot--active {
+	background-color: var(--color-laranja);
+	transform: scale(1.3);
+}
+
+.timeline__content {
+	text-align: center;
+	min-height: 140px;
+}
+
+.timeline__ano {
+	font-family: var(--fonte-titulo);
+	font-size: clamp(2.4rem, 6vw, 4rem);
+	font-weight: 700;
+	color: var(--color-text-primary);
+	line-height: 1;
+	margin-bottom: 0.75rem;
+}
+
+.timeline__titulo {
+	font-size: 1.15rem;
+	font-weight: 600;
+	color: var(--color-laranja);
+	margin-bottom: 0.5rem;
+}
+
+.timeline__descricao {
+	font-size: 0.95rem;
+	color: var(--color-text-secondary);
+	max-width: 480px;
+	margin: 0 auto;
+	line-height: 1.7;
+}
+
+/* ===================== NÚMEROS ===================== */
+.numeros {
+	background-color: var(--color-bg-card);
+	padding: 7rem 2rem;
+	border-top: 1px solid var(--color-bg-border);
+	border-bottom: 1px solid var(--color-bg-border);
+}
+
+.numeros__container {
+	max-width: 1100px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 3rem;
+}
+
+.numeros__item {
+	text-align: center;
+}
+
+.numeros__valor {
+	font-family: var(--fonte-titulo);
+	font-size: clamp(2.8rem, 7vw, 5rem);
+	font-weight: 700;
+	color: var(--color-laranja);
+	line-height: 1;
+}
+
+.numeros__label {
+	margin-top: 0.5rem;
+	font-size: 0.9rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--color-text-secondary);
+}
+
+/* ===================== COMO TRABALHAMOS ===================== */
+.processo {
+	background-color: var(--color-bg-mid);
+	padding: 6rem 2rem;
+}
+
+.processo__titulo {
+	font-family: var(--fonte-titulo);
+	font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.processo__flow {
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.processo__step {
+	background-color: var(--color-bg-card);
+	border: 1px solid var(--color-bg-border);
+	border-radius: 999px;
+	padding: 0.75rem 1.5rem;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--color-text-primary);
+}
+
+.processo__seta {
+	color: var(--color-laranja);
+	font-size: 1rem;
+}
+
+/* ===================== DIFERENCIAIS (checklist) ===================== */
+.diferenciais-lista {
+	background-color: var(--color-bg-dark);
+	padding: 5rem 2rem;
+}
+
+.diferenciais-lista__grid {
+	max-width: 900px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.25rem;
+}
+
+.diferenciais-lista__item {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	font-size: 0.95rem;
+	color: var(--color-text-primary);
+}
+
+.diferenciais-lista__item i {
+	color: var(--color-laranja);
+}
+
+/* ===================== GALERIA ===================== */
+.galeria {
+	background-color: var(--color-bg-dark);
+	padding: 3rem 0;
+}
+
+.galeria__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.5rem;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.galeria__item {
+	position: relative;
+	aspect-ratio: 4 / 5;
+	overflow: hidden;
+}
+
+/* ===================== EQUIPE ===================== */
+.equipe {
+	position: relative;
+	min-height: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background-color: var(--color-bg-dark);
+}
+
+/* ===================== VALORES ===================== */
+.valores {
+	background-color: var(--color-bg-mid);
+	padding: 6rem 2rem;
+	border-top: 1px solid var(--color-bg-border);
+	border-bottom: 1px solid var(--color-bg-border);
+}
+
+.valores__grid {
+	max-width: 1100px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.valores__card {
+	text-align: center;
+}
+
+.valores__card h3 {
+	font-family: var(--fonte-titulo);
+	font-size: 1.25rem;
+	color: var(--color-laranja);
+	margin-bottom: 0.75rem;
+}
+
+.valores__card p {
+	font-size: 0.92rem;
+	color: var(--color-text-secondary);
+	line-height: 1.7;
+}
+
+/* ===================== DEPOIMENTOS ===================== */
+.depoimentos {
+	background-color: var(--color-bg-card);
+	padding: 6rem 2rem;
+}
+
+.depoimentos__titulo {
+	font-family: var(--fonte-titulo);
+	font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.depoimentos__grid {
+	max-width: 1100px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+}
+
+.depoimento__card {
+	background-color: var(--color-bg-mid);
+	border: 1px solid var(--color-bg-border);
+	border-radius: 12px;
+	padding: 1.75rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.depoimento__texto {
+	font-size: 0.9rem;
+	color: var(--color-text-secondary);
+	line-height: 1.7;
+	font-style: italic;
+}
+
+.depoimento__autor {
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: var(--color-text-primary);
+}
+
+.depoimento__bairro {
+	font-size: 0.78rem;
+	color: var(--color-text-muted);
+}
+
+/* ===================== CTA FINAL ===================== */
+.cta-final {
+	background-color: var(--color-bg-dark);
+	padding: 7rem 2rem;
+	text-align: center;
+}
+
+.cta-final__titulo {
+	font-family: var(--fonte-titulo);
+	font-size: clamp(1.8rem, 4vw, 2.8rem);
+	font-weight: 700;
+	max-width: 700px;
+	margin: 0 auto 1rem;
+}
+
+.cta-final__subtitulo {
+	font-size: 1rem;
+	color: var(--color-text-secondary);
+	max-width: 500px;
+	margin: 0 auto 2rem;
+}
+
+.cta-final__actions {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+/* ===================== RESPONSIVO ===================== */
+@media (max-width: 900px) {
+	.compromisso__grid,
+	.valores__grid,
+	.depoimentos__grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.galeria__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.diferenciais-lista__grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 600px) {
+	.compromisso__grid,
+	.valores__grid,
+	.depoimentos__grid,
+	.diferenciais-lista__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.galeria__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.processo__flow {
+		flex-direction: column;
+	}
+
+	.processo__seta {
+		transform: rotate(90deg);
+	}
+}

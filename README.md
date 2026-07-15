@@ -1,57 +1,43 @@
-Segurança Eletrônica
-Câmeras de segurança (CFTV)
+# Astro Starter Kit: Minimal
 
-Alarmes monitorados
+```sh
+npm create astro@latest -- --template minimal
+```
 
-Cercas elétricas
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
------------
-Controle de Acesso
-Interfones
+## 🚀 Project Structure
 
-Fechaduras eletrônicas
+Inside of your Astro project, you'll see the following folders and files:
 
-Controle de entrada e saída
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-Portarias e condomínios
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
------------
-Automação de Portões
-Motores para portões
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Configuração e instalação
+Any static assets, like images, can be placed in the `public/` directory.
 
-Manutenção preventiva
+## 🧞 Commands
 
------------
-Serviços Elétricos
-Instalações elétricas
+All commands are run from the root of the project, from a terminal:
 
-Quadros de distribuição
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-Adequações e reformas
+## 👀 Want to learn more?
 
-Projetos de baixa tensão
-
------------
-Redes e Tecnologia
-Redes cabeadas
-
-Infraestrutura de rede
-
-Configuração de equipamentos
-
-Soluções corporativas
-
-====================
-Para condomínios
-
-Controle de acesso, monitoramento e segurança para moradores.
-
-Para residências
-
-Proteção da família e do patrimônio.
-
-Para empresas
-
-Monitoramento, controle de funcionários e proteção do negócio.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

@@ -1,0 +1,23 @@
+---
+// src/components/ImagePlaceholder.astro
+//
+// Placeholder visual para fotos reais que ainda não foram enviadas.
+// Uso: quando o cliente tirar as fotos reais (equipe, instalações,
+// clientes), basta trocar este componente por uma tag <img> normal
+// apontando para /images/conheca/nome-do-arquivo.jpg.
+//
+// Isso evita imagens quebradas (404) enquanto o conteúdo visual
+// definitivo não chega, e documenta no próprio código o que precisa
+// ser fotografado.
+
+interface Props {
+	label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div class="cena__placeholder" role="img" aria-label={label}>
+	<i class="fa-solid fa-camera" aria-hidden="true"></i>
+	<span>{label}</span>
+</div>

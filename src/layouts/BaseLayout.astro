@@ -1,0 +1,46 @@
+---
+// src/layouts/BaseLayout.astro
+// Layout base compartilhado por TODAS as páginas do site.
+// Contém tudo que não muda entre páginas: <head>, favicons, fontes,
+// Font Awesome e a folha de estilo global (main.css).
+//
+// Cada página só precisa definir seu próprio <title> e <meta description>,
+// e colocar seu conteúdo dentro do <slot />.
+
+import '../styles/main.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Infotell — Segurança e Tecnologia',
+	description = 'Infotell Segurança e Tecnologia — Soluções completas em câmeras de segurança, alarmes, controle de acesso, cerca elétrica, automação de portões e instalações elétricas em Franca e região.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+
+		<title>{title}</title>
+
+		<!-- Favicons -->
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+		<link rel="manifest" href="/favicon/site.webmanifest" />
+
+		<!-- Font Awesome 6 -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+		<meta name="generator" content={Astro.generator} />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

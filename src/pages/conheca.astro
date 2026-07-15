@@ -1,0 +1,275 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+
+const whatsappHref = (msg: string) => `https://wa.me/5516988750149?text=${encodeURIComponent(msg)}`;
+
+const timelineSteps = [
+	{ ano: '2014', titulo: 'A primeira instalação', descricao: 'Começamos atendendo residências em Franca com um único objetivo: entregar instalações impecáveis.' },
+	{ ano: '2016', titulo: 'Primeiros condomínios', descricao: 'A confiança dos clientes trouxe novos desafios e projetos maiores.' },
+	{ ano: '2018', titulo: 'Revenda autorizada Intelbras', descricao: 'Passamos a trabalhar ainda mais próximos da maior fabricante nacional.' },
+	{ ano: '2021', titulo: 'Expansão dos serviços', descricao: 'Automação, controle de acesso, redes e infraestrutura.' },
+	{ ano: 'Hoje', titulo: 'Centenas de clientes protegidos', descricao: 'Mais de 500 clientes protegidos diariamente, em residências, empresas e condomínios.' },
+];
+
+const processoSteps = ['Contato', 'Visita Técnica', 'Projeto', 'Instalação', 'Treinamento', 'Suporte'];
+
+const diferenciais = [
+	'Atendimento Humanizado',
+	'Equipe própria',
+	'Equipamentos originais',
+	'Garantia',
+	'Instalação limpa',
+	'Suporte rápido',
+];
+
+const depoimentos = [
+	{ texto: 'Equipe muito atenciosa e explicou todo o funcionamento do sistema antes de finalizar o serviço.', autor: 'Cliente Infotell', bairro: 'Franca, SP' },
+	{ texto: 'Instalação limpa e organizada, sem sujeira nenhuma. Recomendo bastante.', autor: 'Cliente Infotell', bairro: 'Franca, SP' },
+	{ texto: 'Suporte rápido sempre que precisei. Sinto segurança em indicar para amigos.', autor: 'Cliente Infotell', bairro: 'Franca, SP' },
+];
+---
+
+<BaseLayout
+	title="Conheça a Infotell — Segurança e Tecnologia"
+	description="Conheça a história da Infotell: mais de 10 anos protegendo residências, empresas e condomínios com atendimento próximo, tecnologia de ponta e compromisso com a qualidade."
+>
+	<Navbar activePage="sobre" />
+
+	<main class="conheca">
+		<!-- ===================== CENA INTRO ===================== -->
+		<section class="cena cena--intro" id="cena-intro" aria-label="Abertura">
+			<div class="cena__bg">
+				<ImagePlaceholder label="Foto ampla: fachada ou equipe da Infotell (imagem de abertura)" />
+			</div>
+			<div class="cena__overlay"></div>
+			<div class="cena--intro__wrap">
+				<p class="cena__tag">
+					<i class="fa-solid fa-shield" aria-hidden="true"></i>
+					Conheça a Infotell
+				</p>
+				<h1 class="cena__texto">
+					Mais do que instalar equipamentos,<br />
+					<span>construímos relações de confiança.</span>
+				</h1>
+			</div>
+			<a href="#cena-1" class="cena__scroll-cue" aria-label="Rolar para continuar">
+				<i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+			</a>
+		</section>
+
+		<!-- ===================== CENA 1 ===================== -->
+		<section class="cena" id="cena-1">
+			<div class="cena__bg">
+				<ImagePlaceholder label="Técnico chegando na empresa / viatura estacionando" />
+			</div>
+			<div class="cena__overlay"></div>
+			<h2 class="cena__texto">Toda proteção <span>começa antes da instalação.</span></h2>
+		</section>
+
+		<!-- ===================== CENA 2 ===================== -->
+		<section class="cena" id="cena-2">
+			<div class="cena__bg">
+				<ImagePlaceholder label="Técnico abrindo a viatura, organizando equipamentos" />
+			</div>
+			<div class="cena__overlay"></div>
+			<h2 class="cena__texto">Cada projeto começa entendendo <span>o que realmente precisa ser protegido.</span></h2>
+		</section>
+
+		<!-- ===================== CENA 3 ===================== -->
+		<section class="cena" id="cena-3">
+			<div class="cena__bg">
+				<ImagePlaceholder label="Close em painéis, cabos e ferramentas" />
+			</div>
+			<div class="cena__overlay"></div>
+			<h2 class="cena__texto">Não instalamos equipamentos.<br /><span>Construímos soluções.</span></h2>
+		</section>
+
+		<!-- ===================== CENA 4 (parallax) ===================== -->
+		<section class="cena" id="cena-4">
+			<div class="cena__bg" data-parallax>
+				<ImagePlaceholder label="Instalação em andamento (efeito parallax)" />
+			</div>
+			<div class="cena__overlay"></div>
+			<h2 class="cena__texto">Cada cabo. Cada conexão.<br /><span>Cada detalhe importa.</span></h2>
+		</section>
+
+		<!-- ===================== CENA 5 ===================== -->
+		<section class="cena" id="cena-5">
+			<div class="cena__bg">
+				<ImagePlaceholder label="Cliente observando, técnico explicando o sistema" />
+			</div>
+			<div class="cena__overlay"></div>
+			<h2 class="cena__texto">Segurança também é <span>confiança.</span></h2>
+		</section>
+
+		<!-- ===================== COMPROMISSO (4 passos) ===================== -->
+		<section class="compromisso" id="compromisso" aria-labelledby="compromisso-titulo">
+			<div class="compromisso__container">
+				<h2 class="compromisso__titulo" id="compromisso-titulo">Antes da instalação existe um compromisso.</h2>
+				<div class="compromisso__grid">
+					<div class="compromisso__card">
+						<span class="compromisso__numero">01</span>
+						<h3>Planejamento</h3>
+						<p>Não instalamos equipamentos sem entender a necessidade do cliente.</p>
+					</div>
+					<div class="compromisso__card">
+						<span class="compromisso__numero">02</span>
+						<h3>Execução</h3>
+						<p>Cada cabo, conexão e equipamento seguem padrões técnicos.</p>
+					</div>
+					<div class="compromisso__card">
+						<span class="compromisso__numero">03</span>
+						<h3>Entrega</h3>
+						<p>Explicamos todo o funcionamento do sistema antes de finalizar.</p>
+					</div>
+					<div class="compromisso__card">
+						<span class="compromisso__numero">04</span>
+						<h3>Suporte</h3>
+						<p>Continuamos disponíveis sempre que o cliente precisar.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===================== TIMELINE ===================== -->
+		<section class="timeline" id="timeline" data-steps={JSON.stringify(timelineSteps)}>
+			<div class="timeline__inner">
+				<p class="timeline__label">Nossa trajetória</p>
+
+				<div class="timeline__content">
+					<div class="timeline__ano">{timelineSteps[0].ano}</div>
+					<p class="timeline__titulo">{timelineSteps[0].titulo}</p>
+					<p class="timeline__descricao">{timelineSteps[0].descricao}</p>
+				</div>
+
+				<div class="timeline__track">
+					<div class="timeline__fill"></div>
+					<div class="timeline__dots">
+						{timelineSteps.map((_, i) => (
+							<span class={`timeline__dot ${i === 0 ? 'timeline__dot--active' : ''}`}></span>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===================== NÚMEROS ===================== -->
+		<section class="numeros" id="numeros" aria-label="Números da Infotell">
+			<div class="numeros__container">
+				<div class="numeros__item">
+					<div class="numeros__valor" data-value="10+">0</div>
+					<p class="numeros__label">Anos de mercado</p>
+				</div>
+				<div class="numeros__item">
+					<div class="numeros__valor" data-value="10.000+">0</div>
+					<p class="numeros__label">Equipamentos instalados</p>
+				</div>
+				<div class="numeros__item">
+					<div class="numeros__valor" data-value="500+">0</div>
+					<p class="numeros__label">Clientes atendidos</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===================== COMO TRABALHAMOS ===================== -->
+		<section class="processo" id="processo" aria-labelledby="processo-titulo">
+			<h2 class="processo__titulo" id="processo-titulo">Como Trabalhamos</h2>
+			<div class="processo__flow">
+				{processoSteps.map((step, i) => (
+					<>
+						<span class="processo__step">{step}</span>
+						{i < processoSteps.length - 1 && (
+							<i class="fa-solid fa-arrow-right processo__seta" aria-hidden="true"></i>
+						)}
+					</>
+				))}
+			</div>
+		</section>
+
+		<!-- ===================== DIFERENCIAIS (checklist) ===================== -->
+		<section class="diferenciais-lista" aria-label="Diferenciais da Infotell">
+			<div class="diferenciais-lista__grid">
+				{diferenciais.map((item) => (
+					<div class="diferenciais-lista__item">
+						<i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+						<span>{item}</span>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- ===================== GALERIA ===================== -->
+		<section class="galeria" aria-label="Galeria de instalações">
+			<div class="galeria__grid">
+				<div class="galeria__item"><ImagePlaceholder label="Instalação residencial" /></div>
+				<div class="galeria__item"><ImagePlaceholder label="Instalação em condomínio" /></div>
+				<div class="galeria__item"><ImagePlaceholder label="Instalação comercial" /></div>
+				<div class="galeria__item"><ImagePlaceholder label="Equipamentos Intelbras" /></div>
+				<div class="galeria__item"><ImagePlaceholder label="Equipe em campo" /></div>
+				<div class="galeria__item"><ImagePlaceholder label="Painel de controle finalizado" /></div>
+			</div>
+		</section>
+
+		<!-- ===================== EQUIPE ===================== -->
+		<section class="equipe" id="equipe">
+			<div class="cena__bg">
+				<ImagePlaceholder label="Foto da equipe completa da Infotell" />
+			</div>
+			<div class="cena__overlay"></div>
+			<h2 class="cena__texto">Hoje somos uma equipe preparada para <span>proteger o que realmente importa.</span></h2>
+		</section>
+
+		<!-- ===================== VALORES ===================== -->
+		<section class="valores" aria-label="Nossos valores">
+			<div class="valores__grid">
+				<div class="valores__card">
+					<h3>Compromisso</h3>
+					<p>Nossa prioridade não é instalar equipamentos, mas resolver problemas.</p>
+				</div>
+				<div class="valores__card">
+					<h3>Qualidade</h3>
+					<p>Utilizamos equipamentos confiáveis e seguimos padrões rigorosos de instalação.</p>
+				</div>
+				<div class="valores__card">
+					<h3>Relacionamento</h3>
+					<p>Continuamos ao lado do cliente mesmo após a entrega.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===================== DEPOIMENTOS ===================== -->
+		<section class="depoimentos" aria-labelledby="depoimentos-titulo">
+			<h2 class="depoimentos__titulo" id="depoimentos-titulo">Depoimentos</h2>
+			<div class="depoimentos__grid">
+				{depoimentos.map((d) => (
+					<div class="depoimento__card">
+						<p class="depoimento__texto">"{d.texto}"</p>
+						<div>
+							<p class="depoimento__autor">{d.autor}</p>
+							<p class="depoimento__bairro">{d.bairro}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- ===================== CTA FINAL ===================== -->
+		<section class="cta-final" aria-labelledby="cta-final-titulo">
+			<h2 class="cta-final__titulo" id="cta-final-titulo">Vamos proteger o que é importante para você?</h2>
+			<p class="cta-final__subtitulo">Nossa equipe está pronta para encontrar a solução ideal para sua necessidade.</p>
+			<div class="cta-final__actions">
+				<a href={whatsappHref('Olá, gostaria de um atendimento!')} class="btn btn--laranja btn--lg" target="_blank" rel="noopener noreferrer">
+					<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+					Quero falar com um especialista
+				</a>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+
+	<script src="../scripts/pages/conheca.js"></script>
+</BaseLayout>

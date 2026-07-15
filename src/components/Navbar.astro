@@ -1,0 +1,65 @@
+---
+// src/components/Navbar.astro
+// Navbar reutilizável em todas as páginas do site.
+// Escrita uma única vez aqui — nenhuma página precisa copiar este HTML.
+
+interface Props {
+	activePage?: 'inicio' | 'servicos' | 'sobre' | 'projetos' | 'contato' | 'feedback';
+}
+
+const { activePage } = Astro.props;
+
+const links = [
+	{ href: '/#inicio', label: 'Início', key: 'inicio' },
+	{ href: '/#servicos', label: 'Serviços', key: 'servicos' },
+	{ href: '/conheca', label: 'Sobre', key: 'sobre' },
+	{ href: '/#projetos', label: 'Projetos', key: 'projetos' },
+	{ href: '/#contato', label: 'Contato', key: 'contato' },
+	{ href: '/feedback', label: 'Feedback', key: 'feedback' }, // temporário
+];
+
+const whatsappHref = 'https://wa.me/5516988750149?text=Olá,%20gostaria%20de%20um%20atendimento!';
+---
+
+<header class="navbar" id="navbar">
+	<div class="navbar__container">
+		<a href="/#inicio" class="navbar__logo" aria-label="Infotell — Início">
+			<img src="/images/shared/simbolo-logo.png" alt="Símbolo Infotell" class="navbar__logo-icon" />
+			<div class="navbar__logo-text">
+				<span class="navbar__logo-name">Infotell</span>
+				<span class="navbar__logo-sub">SEGURANÇA E TECNOLOGIA</span>
+			</div>
+		</a>
+
+		<nav class="navbar__nav" id="navbar-nav" aria-label="Menu principal">
+			{links.map((link) => (
+				<a
+					href={link.href}
+					class="navbar__link"
+					aria-current={activePage === link.key ? 'page' : undefined}
+				>
+					{link.label}
+				</a>
+			))}
+		</nav>
+
+		<a
+			href={whatsappHref}
+			class="btn btn--whatsapp"
+			target="_blank"
+			rel="noopener noreferrer"
+			id="navbar-whatsapp-btn"
+		>
+			<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+			FALAR NO WHATSAPP
+		</a>
+
+		<button class="navbar__services" id="navbar-services" aria-label="Abrir menu" aria-expanded="false">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+	</div>
+</header>
+
+<script src="../scripts/components/navbar.js"></script>

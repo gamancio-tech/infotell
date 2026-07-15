@@ -1,0 +1,25 @@
+---
+// src/components/Footer.astro
+// Footer de diferenciais, reutilizável em todas as páginas.
+
+const diferenciais = [
+	{ id: 'atendimento', icon: 'fa-headset', texto: 'Atendimento rápido e personalizado' },
+	{ id: 'equipamentos', icon: 'fa-award', texto: 'Equipamentos de qualidade' },
+	{ id: 'instalacao', icon: 'fa-screwdriver-wrench', texto: 'Instalação profissional e segura' },
+	{ id: 'suporte', icon: 'fa-life-ring', texto: 'Suporte técnico especializado' },
+	{ id: 'solucoes', icon: 'fa-users', texto: 'Soluções para todos os perfis' },
+];
+---
+
+<footer class="diferenciais" aria-label="Diferenciais da Infotell">
+	<div class="diferenciais__container">
+		{diferenciais.map((d) => (
+			<div class="diferencial" id={`diferencial-${d.id}`}>
+				<div class="diferencial__icon" aria-hidden="true">
+					<i class={`fa-solid ${d.icon}`}></i>
+				</div>
+				<span class="diferencial__texto">{d.texto}</span>
+			</div>
+		))}
+	</div>
+</footer>
