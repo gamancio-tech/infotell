@@ -12,11 +12,13 @@ import '../styles/main.css';
 interface Props {
 	title?: string;
 	description?: string;
+	bodyClass?: string;
 }
 
 const {
 	title = 'Infotell — Segurança e Tecnologia',
 	description = 'Infotell Segurança e Tecnologia — Soluções completas em câmeras de segurança, alarmes, controle de acesso, cerca elétrica, automação de portões e instalações elétricas em Franca e região.',
+	bodyClass,
 } = Astro.props;
 ---
 
@@ -40,7 +42,7 @@ const {
 
 		<meta name="generator" content={Astro.generator} />
 	</head>
-	<body>
+	<body class={bodyClass}>
 		<slot />
 	</body>
 </html>

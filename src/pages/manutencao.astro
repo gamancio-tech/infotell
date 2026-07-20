@@ -1,0 +1,602 @@
+---
+// src/pages/manutencao.astro
+// Página de manutenção que segue fielmente o wireframe fornecido.
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import { whatsappHref } from "../consts";
+---
+
+<BaseLayout
+    title="Estamos em Manutenção — Infotell"
+    bodyClass="page-manutencao"
+>
+    <div class="maintenance-wrapper">
+        <!-- Header com a Logo -->
+        <header class="maintenance-header">
+            <div class="logo-box">
+                <!-- Ícone ou marca gráfica da Infotell (substitua pela imagem real se houver) -->
+                <div class="navbar__logo">
+                    <img
+                        src="/images/shared/simbolo-logo.png"
+                        alt="Símbolo Infotell"
+                        class="maintenance-logo-icon navbar__logo-icon"
+                    />
+                    <div class="maintenance-logo-text navbar__logo-text">
+                        <span class="maintenance-logo-name navbar__logo-name">Infotell</span>
+                        <span class="maintenance-logo-sub navbar__logo-sub">SEGURANÇA E TECNOLOGIA</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal (Esquerda) -->
+        <main class="maintenance-main">
+            <div class="content-left">
+                <div class="badge">
+                    <span class="badge-line"></span> ESTAMOS EM MANUTENÇÃO
+                </div>
+
+                <h1 class="main-title">
+                    Estamos preparando <span class="highlight">novidades</span> para
+                    você.
+                </h1>
+
+                <p class="description">
+                    Nossa equipe está trabalhando para entregar uma experiência
+                    ainda melhor. Em breve esta página estará disponível.
+                </p>
+
+                <!-- Cards de Destaque -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-box">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Melhorias em andamento</h3>
+                            <p>
+                                Estamos implementando novos recursos e
+                                funcionalidades.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ações -->
+                <div class="actions-group">
+                    <a href="/" class="btn-primary">
+                        <i class="fa-solid fa-house"></i> VOLTAR AO INÍCIO
+                    </a>
+                    <a
+                        href={whatsappHref('Olá! Estou acessando o site e gostaria de...')}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-secondary"
+                    >
+                        <i class="fa-brands fa-whatsapp"></i> FALAR NO WHATSAPP
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Rodapé com Status do Sistema e Direitos Autorais -->
+        <footer class="maintenance-footer">
+            <!-- Barra de Status do Sistema -->
+            <div class="status-bar">
+                <div class="status-indicator">
+                    <div class="status-icon-box">
+                        <i class="fa-solid fa-wave-square"></i>
+                    </div>
+                    <div class="status-text">
+                        <h4>STATUS DO SISTEMA</h4>
+                        <p>Monitorando e atualizando componentes</p>
+                    </div>
+                </div>
+
+                <div class="status-items">
+                    <div class="status-item">
+                        <i class="fa-solid fa-circle-check checked-icon"></i>
+                        <div class="status-item-text">
+                            <span class="label">Servidores</span>
+                            <span class="value val-green">Online</span>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <i class="fa-solid fa-circle-check checked-icon"></i>
+                        <div class="status-item-text">
+                            <span class="label">Segurança</span>
+                            <span class="value val-green">Protegida</span>
+                        </div>
+                    </div>
+                    <!--
+					<div class="status-item">
+						<i class="fa-solid fa-circle-check checked-icon"></i>
+						<div class="status-item-text">
+							<span class="label">Banco de dados</span>
+							<span class="value val-green">Sincronizado</span>
+						</div>
+                    </div> 
+                    -->
+                    <div class="status-item">
+                        <div class="loading-dot-spinner"></div>
+                        <div class="status-item-text">
+                            <span class="label">Conteúdo</span>
+                            <span class="value val-gray">Atualizando</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>Sincronizando melhorias...</span>
+                        <span class="progress-percent">72%</span>
+                    </div>
+                    <div class="segmented-progress">
+                        <span class="segment filled"></span>
+                        <span class="segment filled"></span>
+                        <span class="segment filled"></span>
+                        <span class="segment filled"></span>
+                        <span class="segment filled"></span>
+                        <span class="segment filled"></span>
+                        <span class="segment filled"></span>
+                        <span class="segment filled"></span>
+                        <span class="segment"></span>
+                        <span class="segment"></span>
+                        <span class="segment"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Créditos Finais -->
+            <div class="footer-credits">
+                <p class="copyright">
+                    Infotell Segurança e Tecnologia LTDA. &copy; Todos os direitos
+                    reservados.
+                </p>
+                <p class="intelbras">
+                    Revenda autorizada <span class="brand-green">intelbras</span
+                    >
+                </p>
+            </div>
+        </footer>
+    </div>
+</BaseLayout>
+
+<style is:global>
+    /* Configurações do Body específicas para a página de manutenção */
+    body.page-manutencao {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: #04080f;
+
+        /* O robô e a tela ficam posicionados do lado direito da imagem de fundo */
+        background-image:
+            linear-gradient(
+                to right,
+                rgba(4, 8, 15, 0.98) 35%,
+                rgba(4, 8, 15, 0.8) 60%,
+                rgba(4, 8, 15, 0.5) 100%
+            ),
+            url("/images/manutencao/background.png");
+        background-size: cover;
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+    }
+
+    @media (max-width: 1024px) {
+        body.page-manutencao {
+            /* Mais escuro no mobile para priorizar a leitura */
+            background-image:
+                linear-gradient(rgba(4, 8, 15, 0.95), rgba(4, 8, 15, 0.92)),
+                url("/images/manutencao/background.png");
+            background-position: center;
+        }
+    }
+</style>
+
+<style>
+    /* Wrapper principal */
+    .maintenance-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 2.5rem 4rem 1.5rem 4rem;
+        box-sizing: border-box;
+        justify-content: space-between;
+    }
+
+    
+
+    /* Header & Logo */
+    .maintenance-header {
+        margin-bottom: 2rem;
+    }
+    
+    .maintenance-logo-icon {
+        width: 140px;
+        height: auto;
+    }
+    
+    .maintenance-logo-text {
+        transform: translate(-1.75rem, 0.35rem);
+        line-height: 1.8em;
+    }
+
+    .maintenance-logo-name {
+        font-size: 2.5em;
+    }
+
+    .maintenance-logo-sub {
+        font-size: 0.9em;
+    }
+
+    /* Conteúdo Esquerdo */
+    .maintenance-main {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        margin-bottom: 3rem;
+    }
+
+    .content-left {
+        max-width: 650px;
+        width: 100%;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: #f97316;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        margin-bottom: 1.5rem;
+    }
+
+    .badge-line {
+        width: 20px;
+        height: 2px;
+        background-color: #f97316;
+        display: inline-block;
+    }
+
+    .main-title {
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 1.5rem;
+        color: #ffffff;
+    }
+
+    .main-title .highlight {
+        color: #f97316;
+    }
+
+    .description {
+        font-size: 1.1rem;
+        color: #94a3b8;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Grid de Cards */
+    .features-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .feature-card {
+        background: rgba(30, 41, 59, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.2rem 1.5rem;
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        transition:
+            transform 0.2s ease,
+            border-color 0.2s ease;
+    }
+
+    .feature-card:hover {
+        border-color: rgba(249, 115, 22, 0.2);
+    }
+
+    .feature-icon-box {
+        color: #f97316;
+        font-size: 1.3rem;
+        margin-top: 0.2rem;
+    }
+
+    .feature-content h3 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 0.3rem;
+    }
+
+    .feature-content p {
+        font-size: 0.8rem;
+        color: #64748b;
+        line-height: 1.4;
+    }
+
+    /* Grupo de Ações (Botões) */
+    .actions-group {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .btn-primary {
+        background-color: #f97316;
+        color: #ffffff;
+        padding: 0.9rem 1.8rem;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        letter-spacing: 0.5px;
+        transition:
+            background-color 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #ea6a0a;
+        transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        padding: 0.9rem 1.8rem;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        letter-spacing: 0.5px;
+        transition:
+            background-color 0.2s,
+            border-color 0.2s,
+            transform 0.2s;
+    }
+
+    .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.25);
+        transform: translateY(-1px);
+    }
+
+    /* Footer & Status Bar */
+    .maintenance-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .status-bar {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.2rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .status-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        min-width: 250px;
+    }
+
+    .status-icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: rgba(249, 115, 22, 0.1);
+        border: 1px solid rgba(249, 115, 22, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #f97316;
+        font-size: 1.2rem;
+    }
+
+    .status-text h4 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.1rem;
+    }
+
+    .status-text p {
+        font-size: 0.75rem;
+        color: #64748b;
+    }
+
+    .status-items {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .status-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .checked-icon {
+        color: #06c53c;
+        font-size: 0.95rem;
+    }
+
+    .status-item-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+    }
+
+    .status-item-text .label {
+        font-size: 0.7rem;
+        color: #64748b;
+    }
+
+    .status-item-text .value {
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .val-green {
+        color: #06c53c;
+    }
+
+    .val-gray {
+        color: #94a3b8;
+    }
+
+    /* Spinner de conteúdo atualizando */
+    .loading-dot-spinner {
+        width: 14px;
+        height: 14px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-left-color: #f97316;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Progress bar customizada */
+    .progress-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        min-width: 250px;
+    }
+
+    .progress-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        color: #94a3b8;
+    }
+
+    .progress-percent {
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    .segmented-progress {
+        display: flex;
+        gap: 3px;
+        height: 8px;
+    }
+
+    .segment {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+    }
+
+    .segment.filled {
+        background: #f97316;
+    }
+
+    /* Créditos Finais */
+    .footer-credits {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.75rem;
+        color: #64748b;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 1rem;
+    }
+
+    .brand-green {
+        color: #06c53c;
+        font-weight: 700;
+    }
+
+    /* Responsividade Geral */
+    @media (max-width: 1200px) {
+        .status-bar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .status-indicator {
+            min-width: unset;
+        }
+
+        .progress-container {
+            min-width: unset;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .maintenance-wrapper {
+            padding: 2rem;
+        }
+
+        .main-title {
+            font-size: 2.3rem;
+        }
+
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .status-items {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .footer-credits {
+            flex-direction: column;
+            gap: 0.8rem;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .actions-group {
+            flex-direction: column;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
+
+<script>
+    console.log("Página de manutenção carregada com sucesso.");
+</script>

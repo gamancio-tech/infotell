@@ -3,8 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import FeedbackStep from '../components/FeedbackStep.astro';
 
-const whatsHref = "https://wa.me/5516988750149?text=Olá,%20gostaria%20de%20um%20atendimento!"
-const instaHref = "https://www.instagram.com/infotellfranca_/"
+import { whatsappHref, INSTAGRAM_HREF } from '../consts';
 ---
 
 <BaseLayout>
@@ -358,14 +357,14 @@ const instaHref = "https://www.instagram.com/infotellfranca_/"
                 <h3 class="thanks-section__title">Acompanhe a Infotell</h3>
                 <p class="thanks-section__desc">Siga nossas redes sociais e fique por dentro de novidades e dicas de segurança.</p>
                 <div class="thanks-social">
-                    <a href={instaHref} target="_blank" rel="noopener noreferrer" class="thanks-social__link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href={whatsHref} target="_blank" rel="noopener noreferrer" class="thanks-social__link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href={INSTAGRAM_HREF} target="_blank" rel="noopener noreferrer" class="thanks-social__link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href={whatsappHref('Olá! Estou acessando o site e gostaria de...')} target="_blank" rel="noopener noreferrer" class="thanks-social__link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
                 <div class="thanks-actions">
                     <a href="/" class="btn-step btn-step--outline">
                         <i class="fa-solid fa-house"></i> VOLTAR AO SITE
                     </a>
-                    <a href={whatsHref} target="_blank" rel="noopener noreferrer" class="btn-step btn-step--next">
+                    <a href={whatsappHref('Olá! Estou acessando o site e gostaria de...')} target="_blank" rel="noopener noreferrer" class="btn-step btn-step--next">
                         <i class="fa-brands fa-whatsapp"></i> FALAR NO WHATSAPP
                     </a>
                 </div>

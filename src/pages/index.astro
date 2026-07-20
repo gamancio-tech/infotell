@@ -4,8 +4,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 
-const whatsappHref = (msg: string) =>
-  `https://wa.me/5516988750149?text=${encodeURIComponent(msg)}`;
+import { whatsappHref, TELEFONE } from '../consts';
 ---
 
 <BaseLayout>
@@ -100,7 +99,7 @@ const whatsappHref = (msg: string) =>
         </p>
 
         <a
-          href="/conheca"
+          href="/manutencao"
           class="btn btn--outline-round"
           id="sobre-historia-btn"
         >
@@ -236,7 +235,7 @@ const whatsappHref = (msg: string) =>
           </button>
 
           <a
-            href="#contato"
+            href="/manutencao"
             class="btn btn--outline-square"
             id="servicos-ver-todos-btn"
           >
@@ -313,7 +312,7 @@ const whatsappHref = (msg: string) =>
             CHAMAR NO WHATSAPP
           </a>
           <a
-            href="tel:+5516988750149"
+            href={TELEFONE}
             class="btn btn--outline btn--lg"
             id="cta-ligar-btn"
           >

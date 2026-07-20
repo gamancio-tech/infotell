@@ -2,6 +2,7 @@
 // src/components/Navbar.astro
 // Navbar reutilizável em todas as páginas do site.
 // Escrita uma única vez aqui — nenhuma página precisa copiar este HTML.
+import { whatsappHref } from "../consts";
 
 interface Props {
 	activePage?: 'inicio' | 'servicos' | 'sobre' | 'projetos' | 'contato';
@@ -11,13 +12,11 @@ const { activePage } = Astro.props;
 
 const links = [
 	{ href: '/#inicio', label: 'Início', key: 'inicio' },
-	{ href: '/#servicos', label: 'Serviços', key: 'servicos' },
-	{ href: '/conheca', label: 'Sobre', key: 'sobre' },
-	{ href: '/#projetos', label: 'Projetos', key: 'projetos' },
+	{ href: '/manutencao', label: 'Serviços', key: 'servicos' },
+	{ href: '/manutencao', label: 'Sobre', key: 'sobre' },
+	{ href: '/manutencao', label: 'Projetos', key: 'projetos' },
 	{ href: '/#contato', label: 'Contato', key: 'contato' },
 ];
-
-const whatsappHref = 'https://wa.me/5516988750149?text=Olá,%20gostaria%20de%20um%20atendimento!';
 ---
 
 <header class="navbar" id="navbar">
@@ -43,7 +42,7 @@ const whatsappHref = 'https://wa.me/5516988750149?text=Olá,%20gostaria%20de%20u
 		</nav>
 
 		<a
-			href={whatsappHref}
+			href={whatsappHref("Olá, gostaria de um atendimento!")}
 			class="btn btn--whatsapp"
 			target="_blank"
 			rel="noopener noreferrer"
