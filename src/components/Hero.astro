@@ -5,13 +5,17 @@
 // Composto por formato de imagem lateral e hero contents
 
 interface Props {
+    heroBgImgSrc?: string;
+    heroBgImgAlt?: string;
 	heroClass?: string;
     showArrow?: boolean;
 }
 
-const heroBgImgSrc = "/images/index/camera-img-lateral.png";
-const heroBgImgAlt = "Câmera de segurança Intelbras instalada em fachada";
-const { heroClass, showArrow } = Astro.props;
+const { heroBgImgSrc = "/images/index/camera-img-lateral.png",
+        heroBgImgAlt = "Câmera de segurança Intelbras instalada em fachada",
+        heroClass = '',
+        showArrow = true } = Astro.props;
+
 const displayArrow = showArrow === false?'display: none;':'';
 ---
 

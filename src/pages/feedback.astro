@@ -9,6 +9,7 @@ import { whatsappHref, INSTAGRAM_HREF } from '../consts';
 <BaseLayout>
     <div id="intro-section">
         <Hero
+        heroBgImgSrc = "/images/feedback/feedback-hero.png"
         heroClass = "hero--feedback"
         showArrow = {false}
     >
@@ -20,12 +21,12 @@ import { whatsappHref, INSTAGRAM_HREF } from '../consts';
                         <span class="feedback__logo-name">Infotell</span>
                     </div>
                 </div>
-                <p class="feedback__logo-sub">SEGURANÇA &#8226; TECNOLOGIA &#8226; ELETRÔNICA</p>
+                <p class="feedback__logo-sub">SEGURANÇA ELETRÔNICA &#8226; TECNOLOGIA</p>
             </div>
 
             <h1 class="hero__title a">
                 <span class="hero__title--highlight">
-                    Obrigado por confiar na Infotell.
+                    Agradecemos sua parceria
                 </span>
             </h1>
 
@@ -70,8 +71,8 @@ import { whatsappHref, INSTAGRAM_HREF } from '../consts';
         <FeedbackStep 
             id="step-2"
             step={2} 
-            title="Qual solução instalamos para você?"
-            subtitle="Selecione o serviço realizado."
+            title="Quais dos serviços foram contratados?"
+            subtitle="Selecione abaixo."
         >
             <div class="services-grid">
                 <label class="service-card">
@@ -344,12 +345,12 @@ import { whatsappHref, INSTAGRAM_HREF } from '../consts';
                     </li>
                     <li>
                         <i class="fa-regular fa-comments"></i>
-                        <span>Seus comentários serão analisados com muito cuidado.</span>
+                        <span>Agradecemos seu apoio e participação.</span>
                     </li>
-                    <li>
+                    <!-- <li>
                         <i class="fa-solid fa-headset"></i>
                         <span>Em breve podemos entrar em contato para manter tudo funcionando perfeitamente.</span>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
@@ -362,7 +363,7 @@ import { whatsappHref, INSTAGRAM_HREF } from '../consts';
                 </div>
                 <div class="thanks-actions">
                     <a href="/" class="btn-step btn-step--outline">
-                        <i class="fa-solid fa-house"></i> VOLTAR AO SITE
+                        <i class="fa-solid fa-house"></i> VISITE NOSSO SITE
                     </a>
                     <a href={whatsappHref('Olá! Estou acessando o site e gostaria de...')} target="_blank" rel="noopener noreferrer" class="btn-step btn-step--next">
                         <i class="fa-brands fa-whatsapp"></i> FALAR NO WHATSAPP
@@ -409,7 +410,7 @@ import { whatsappHref, INSTAGRAM_HREF } from '../consts';
         <div class="feedback-thanks__footer">
             <div class="ft-footer__left">
                 <span class="ft-footer__brand">Infotell</span>
-                <span class="ft-footer__tag">SEGURANÇA &#8226; TECNOLOGIA &#8226; ELETRÔNICA</span>
+                <span class="ft-footer__tag">SEGURANÇA ELETRÔNICA &#8226; TECNOLOGIA</span>
             </div>
             <div class="ft-footer__center">
                 Infotell Segurança e Tecnologia LTDA. Todos os direitos reservados.
