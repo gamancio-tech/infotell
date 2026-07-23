@@ -143,16 +143,15 @@
     .navbar__services.navbar__services--open span:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
     }
-}
 
-@media (max-width: 650px) {
-    .navbar__logo-text {
+    /* Ocultar botão WhatsApp da navbar no mobile */
+    .navbar__whatsapp {
         display: none;
     }
 }
 
 @media (max-width: 450px) {
-    .navbar__container{
+    .navbar__container {
         padding: 1rem;
     }
 }

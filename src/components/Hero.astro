@@ -21,11 +21,17 @@ const displayArrow = showArrow === false?'display: none;':'';
 
 <section class={`hero ${heroClass || ''}`} id="inicio" aria-label="Apresentação da Infotell">
     <div class="hero__bg-image">
-    <img
-        src={heroBgImgSrc}
-        alt={heroBgImgAlt}
-        class="hero__camera-img"
-    />
+    <picture>
+        <source
+            media="(max-width: 768px)"
+            srcset={heroBgImgSrc.replace(/(\.[^.]+)$/, '-menor$1')}
+        />
+        <img
+            src={heroBgImgSrc}
+            alt={heroBgImgAlt}
+            class="hero__camera-img"
+        />
+    </picture>
     <div class="hero__overlay" aria-hidden="true"></div>
     </div>
 

@@ -4,7 +4,34 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 
-import { whatsappHref, TELEFONE } from '../consts';
+import { whatsappHref, TELEFONE, INSTAGRAM_HREF, EMAIL_CONTATO } from '../consts';
+
+const depoimentos = [
+  {
+    texto: "Técnico muito prestativo na explicação e orientação sobre os equipamentos se colocando a disposição para tirar quaisquer dúvidas e ainda deu de brinde garantia de 6 meses na instalação. Responde whatsapp e ligações rapidamente, o que os diferencia de outras empresas do segmento.",
+    autor: "Vanessa",
+    bairro: "Franca, SP",
+  },
+  {
+    texto: "Instalação limpa e organizada, sem sujeira nenhuma. Recomendo bastante.",
+    autor: "Cliente Infotell",
+    bairro: "Franca, SP",
+  },
+  {
+    texto: "Suporte rápido sempre que precisei. Sinto segurança em indicar para amigos.",
+    autor: "Cliente Infotell",
+    bairro: "Franca, SP",
+  },
+];
+
+const marcas = [
+  { nome: "intelbras", classe: "marca--intelbras" },
+  { nome: "Hikvision", classe: "marca--hikvision" },
+  { nome: "Control ID", classe: "marca--controlid" },
+  { nome: "JFL", classe: "marca--jfl" },
+  { nome: "Garen", classe: "marca--garen" },
+  { nome: "Nice", classe: "marca--nice" },
+];
 ---
 
 <BaseLayout>
@@ -33,19 +60,19 @@ import { whatsappHref, TELEFONE } from '../consts';
 			</p>
 
 			<div class="hero__actions">
-			<a href="#contato" class="btn btn--laranja" id="hero-orcamento-btn">
-				<i class="fa-solid fa-file-invoice" aria-hidden="true"></i>
-				SOLICITAR ORÇAMENTO
-			</a>
 			<a
 				href={whatsappHref("Olá, gostaria de um atendimento!")}
-				class="btn btn--outline"
+				class="btn btn--laranja"
 				target="_blank"
 				rel="noopener noreferrer"
 				id="hero-whatsapp-btn"
 			>
 				<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
 				FALAR NO WHATSAPP
+			</a>
+			<a href="#contato" class="btn btn--outline" id="hero-orcamento-btn">
+				<i class="fa-solid fa-file-invoice" aria-hidden="true"></i>
+				SOLICITAR ORÇAMENTO
 			</a>
 			</div>
 		</div>
@@ -69,7 +96,7 @@ import { whatsappHref, TELEFONE } from '../consts';
             </div>
             <div class="hero__stat" role="listitem">
               <strong class="hero__stat-number">10.000+</strong>
-              <span class="hero__stat-label">Câmeras instaladas</span>
+              <span class="hero__stat-label">Equipamentos instalados</span>
             </div>
             <div class="hero__stat" role="listitem">
               <strong class="hero__stat-number">500+</strong>
@@ -79,39 +106,19 @@ import { whatsappHref, TELEFONE } from '../consts';
         </div>
 	</Hero>
 
-    <!-- ===================== SOBRE ===================== -->
-    <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
-      <div class="sobre__container">
-        <p class="section-tag">
-          <span class="section-tag__line" aria-hidden="true"></span>
-          CONHEÇA A INFOTELL
-          <span class="section-tag__line" aria-hidden="true"></span>
-        </p>
-
-        <h2 class="sobre__title" id="sobre-titulo">
-          Mais que instalação, entregamos tranquilidade.
-        </h2>
-
-        <p class="sobre__description">
-          Tecnologia, experiência e compromisso para oferecer as melhores
-          soluções em segurança eletrônica, controle de acesso, automação e
-          serviços elétricos.
-        </p>
-
-        <a
-          href="/manutencao"
-          class="btn btn--outline-round"
-          id="sobre-historia-btn"
-        >
-          EXPLORAR NOSSA HISTÓRIA
-          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-        </a>
-      </div>
-    </section>
-
     <!-- ===================== SERVIÇOS ===================== -->
     <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">
       <h2 class="sr-only" id="servicos-titulo">Nossos Serviços</h2>
+
+      <!-- Cabeçalho mobile dos serviços -->
+      <div class="servicos__mobile-header">
+        <p class="section-tag">
+          <span class="section-tag__line" aria-hidden="true"></span>
+          NOSSOS SERVIÇOS
+          <span class="section-tag__line" aria-hidden="true"></span>
+        </p>
+        <h2 class="servicos__mobile-titulo">Soluções completas<br />para sua segurança<br />e tranquilidade</h2>
+      </div>
 
       <div class="servicos__container">
         <aside
@@ -136,7 +143,11 @@ import { whatsappHref, TELEFONE } from '../consts';
                 >Proteção contra invasões e situações de risco.</span
               >
             </div>
+            <i class="fa-solid fa-chevron-down servico-item__chevron" aria-hidden="true"></i>
           </button>
+
+          <!-- Painel inline (accordion — apenas mobile) -->
+          <div class="servico-item__painel-inline" id="painel-inline-cameras" aria-hidden="true"></div>
 
           <button
             class="servico-item servico-item"
@@ -155,7 +166,10 @@ import { whatsappHref, TELEFONE } from '../consts';
                 >Proteção contra invasões e situações de risco.</span
               >
             </div>
+            <i class="fa-solid fa-chevron-down servico-item__chevron" aria-hidden="true"></i>
           </button>
+
+          <div class="servico-item__painel-inline" id="painel-inline-alarmes" aria-hidden="true"></div>
 
           <button
             class="servico-item"
@@ -175,7 +189,10 @@ import { whatsappHref, TELEFONE } from '../consts';
                 corporativos.</span
               >
             </div>
+            <i class="fa-solid fa-chevron-down servico-item__chevron" aria-hidden="true"></i>
           </button>
+
+          <div class="servico-item__painel-inline" id="painel-inline-controle-acesso" aria-hidden="true"></div>
 
           <button
             class="servico-item"
@@ -194,7 +211,10 @@ import { whatsappHref, TELEFONE } from '../consts';
                 >Soluções inteligentes para todos os tipos de cenários.</span
               >
             </div>
+            <i class="fa-solid fa-chevron-down servico-item__chevron" aria-hidden="true"></i>
           </button>
+
+          <div class="servico-item__painel-inline" id="painel-inline-casa-inteligente" aria-hidden="true"></div>
 
           <button
             class="servico-item"
@@ -213,7 +233,10 @@ import { whatsappHref, TELEFONE } from '../consts';
                 >Conforto e segurança com motores e automatizadores.</span
               >
             </div>
+            <i class="fa-solid fa-chevron-down servico-item__chevron" aria-hidden="true"></i>
           </button>
+
+          <div class="servico-item__painel-inline" id="painel-inline-portoes" aria-hidden="true"></div>
 
           <button
             class="servico-item"
@@ -232,7 +255,10 @@ import { whatsappHref, TELEFONE } from '../consts';
                 >Projetos, adequações e manutenção com segurança e qualidade.</span
               >
             </div>
+            <i class="fa-solid fa-chevron-down servico-item__chevron" aria-hidden="true"></i>
           </button>
+
+          <div class="servico-item__painel-inline" id="painel-inline-eletrica" aria-hidden="true"></div>
 
           <a
             href="/manutencao"
@@ -244,19 +270,22 @@ import { whatsappHref, TELEFONE } from '../consts';
           </a>
         </aside>
 
-        <!-- Imagem central -->
+        <!-- Imagem central (apenas desktop) -->
         <div class="servicos__imagem-central" aria-hidden="true">
           <div class="servicos__img-placeholder">
-            <img
-              id="painel-imagem"
-              src="/images/index/secao-cameras.png"
-              alt="Câmera de segurança Intelbras instalada"
-              class="servicos__img"
-            />
+            <picture>
+              <source media="(max-width: 768px)" srcset="/images/index/secao-cameras-menor.png" />
+              <img
+                id="painel-imagem"
+                src="/images/index/secao-cameras.png"
+                alt="Câmera de segurança Intelbras instalada"
+                class="servicos__img"
+              />
+            </picture>
           </div>
         </div>
 
-        <!-- Painel de detalhe do serviço -->
+        <!-- Painel de detalhe do serviço (apenas desktop) -->
         <div
           class="servicos__painel"
           id="painel-servico"
@@ -285,6 +314,58 @@ import { whatsappHref, TELEFONE } from '../consts';
       </div>
     </section>
 
+    <!-- ===================== SOBRE ===================== -->
+    <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="sobre__container">
+        <p class="section-tag">
+          <span class="section-tag__line" aria-hidden="true"></span>
+          CONHEÇA A INFOTELL
+          <span class="section-tag__line" aria-hidden="true"></span>
+        </p>
+
+        <h2 class="sobre__title" id="sobre-titulo">
+          Mais que instalação, entregamos tranquilidade.
+        </h2>
+
+        <p class="sobre__description">
+          Tecnologia, experiência e compromisso para oferecer as melhores
+          soluções em segurança eletrônica, controle de acesso, automação e
+          serviços elétricos.
+        </p>
+
+        <!-- Ícones de diferenciais — visíveis apenas no mobile -->
+        <div class="sobre__diferenciais-mobile" aria-hidden="true">
+          <div class="sobre__diferencial-item">
+            <div class="diferencial__icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <span class="diferencial__texto">Atendimento personalizado</span>
+          </div>
+          <div class="sobre__diferencial-item">
+            <div class="diferencial__icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <span class="diferencial__texto">Equipamentos de qualidade</span>
+          </div>
+          <div class="sobre__diferencial-item">
+            <div class="diferencial__icon">
+              <i class="fa-solid fa-life-ring"></i>
+            </div>
+            <span class="diferencial__texto">Suporte técnico especializado</span>
+          </div>
+        </div>
+
+        <a
+          href="/manutencao"
+          class="btn btn--outline-round"
+          id="sobre-historia-btn"
+        >
+          EXPLORAR NOSSA HISTÓRIA
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
     <!-- ===================== CTA BANNER ===================== -->
     <section class="cta-banner" id="contato" aria-labelledby="cta-titulo">
       <div class="cta-banner__container">
@@ -309,7 +390,7 @@ import { whatsappHref, TELEFONE } from '../consts';
             id="cta-whatsapp-btn"
           >
             <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-            CHAMAR NO WHATSAPP
+            FALAR NO WHATSAPP
           </a>
           <a
             href={TELEFONE}
@@ -319,6 +400,81 @@ import { whatsappHref, TELEFONE } from '../consts';
             <i class="fa-solid fa-phone" aria-hidden="true"></i>
             LIGAR AGORA
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MARCAS ===================== -->
+    <section class="marcas" id="marcas" aria-labelledby="marcas-titulo">
+      <div class="marcas__container">
+        <p class="section-tag marcas__tag-label">
+          <span class="section-tag__line" aria-hidden="true"></span>
+          MARCAS QUE TRABALHAMOS
+          <span class="section-tag__line" aria-hidden="true"></span>
+        </p>
+        <div class="marcas__grid" role="list" aria-label="Marcas parceiras">
+          {marcas.map((marca) => (
+            <div class={`marca ${marca.classe}`} role="listitem">
+              <span class="marca__nome">{marca.nome}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DEPOIMENTOS ===================== -->
+    <section class="depoimentos-index" id="depoimentos" aria-labelledby="depoimentos-titulo">
+      <div class="depoimentos-index__container">
+        <p class="section-tag">
+          <span class="section-tag__line" aria-hidden="true"></span>
+          O QUE NOSSOS CLIENTES DIZEM
+          <span class="section-tag__line" aria-hidden="true"></span>
+        </p>
+
+        <div class="depoimentos-index__carrossel" id="depoimentos-carrossel">
+          {depoimentos.map((d, i) => (
+            <div class={`depoimento-card ${i === 0 ? 'depoimento-card--ativo' : ''}`} data-index={i}>
+              <div class="depoimento-card__estrelas" aria-label="5 estrelas">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="depoimento-card__texto">"{d.texto}"</p>
+              <div class="depoimento-card__autor">
+                <div class="depoimento-card__avatar" aria-hidden="true">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                  <strong class="depoimento-card__nome">{d.autor}</strong>
+                  <span class="depoimento-card__local">{d.bairro}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="depoimentos-index__nav">
+          <button class="depoimentos-index__btn" id="dep-prev-btn" aria-label="Depoimento anterior">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+
+          <div class="depoimentos-index__dots" role="tablist" aria-label="Navegar entre depoimentos">
+            {depoimentos.map((_, i) => (
+              <button
+                class={`depoimentos-index__dot ${i === 0 ? 'depoimentos-index__dot--ativo' : ''}`}
+                role="tab"
+                aria-selected={i === 0 ? 'true' : 'false'}
+                data-dot={i}
+                aria-label={`Depoimento ${i + 1}`}
+              ></button>
+            ))}
+          </div>
+
+          <button class="depoimentos-index__btn" id="dep-next-btn" aria-label="Próximo depoimento">
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </section>

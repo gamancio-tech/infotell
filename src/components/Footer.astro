@@ -1,6 +1,9 @@
 ---
 // src/components/Footer.astro
-// Footer de diferenciais, reutilizável em todas as páginas.
+// Footer de diferenciais + rodapé completo (logo, redes sociais, copyright)
+// O bloco de diferenciais é ocultado no mobile via CSS.
+
+import { whatsappHref, INSTAGRAM_HREF, EMAIL_CONTATO } from '../consts';
 
 const diferenciais = [
 	{ id: 'atendimento', icon: 'fa-headset', texto: 'Atendimento rápido e personalizado' },
@@ -11,7 +14,8 @@ const diferenciais = [
 ];
 ---
 
-<footer class="diferenciais" aria-label="Diferenciais da Infotell">
+<!-- Diferenciais — visíveis apenas no desktop -->
+<div class="diferenciais" aria-label="Diferenciais da Infotell">
 	<div class="diferenciais__container">
 		{diferenciais.map((d) => (
 			<div class="diferencial" id={`diferencial-${d.id}`}>
@@ -21,5 +25,35 @@ const diferenciais = [
 				<span class="diferencial__texto">{d.texto}</span>
 			</div>
 		))}
+	</div>
+</div>
+
+<!-- Rodapé inferior — visível em todas as versões -->
+<footer class="footer-base" aria-label="Rodapé Infotell">
+	<div class="footer-base__container">
+		<a href="/#inicio" class="footer-base__logo" aria-label="Infotell — Início">
+			<img src="/images/shared/simbolo-logo.png" alt="Símbolo Infotell" class="footer-base__logo-icon" />
+			<div class="footer-base__logo-text">
+				<span class="footer-base__logo-name">Infotell</span>
+				<span class="footer-base__logo-sub">SEGURANÇA E TECNOLOGIA PARA VOCÊ DESDE 2013.</span>
+			</div>
+		</a>
+
+		<nav class="footer-base__social" aria-label="Redes sociais">
+			<a href={INSTAGRAM_HREF} class="footer-base__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+				<i class="fa-brands fa-instagram"></i>
+			</a>
+			<a href="https://www.facebook.com" class="footer-base__social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+				<i class="fa-brands fa-facebook-f"></i>
+			</a>
+			<a href={whatsappHref("Olá, gostaria de um atendimento!")} class="footer-base__social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+				<i class="fa-brands fa-whatsapp"></i>
+			</a>
+			<a href={`mailto:${EMAIL_CONTATO}`} class="footer-base__social-link" aria-label="E-mail">
+				<i class="fa-solid fa-envelope"></i>
+			</a>
+		</nav>
+
+		<p class="footer-base__copy">© {new Date().getFullYear()} Infotell. Todos os direitos reservados.</p>
 	</div>
 </footer>
