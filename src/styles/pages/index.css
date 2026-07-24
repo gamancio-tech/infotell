@@ -411,7 +411,8 @@
     border: 1px solid var(--color-bg-border);
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.03);
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.2s ease, 
+    background-color 0.2s ease;
     min-width: 110px;
 }
 
@@ -426,7 +427,6 @@
     font-weight: 700;
     color: var(--color-text-secondary);
     letter-spacing: 0.04em;
-    text-transform: uppercase;
     transition: color 0.2s ease;
 }
 
@@ -434,9 +434,46 @@
     color: var(--color-text-primary);
 }
 
-/* Estilo especial para a marca intelbras */
+/* Estilo especial para cada marca */
 .marca--intelbras .marca__nome {
     color: var(--color-intelbras-text, #2ae);
+    font-size: 1.2rem;
+}
+.marca--ppa .marca__nome {
+    color: #E9500E;
+    font-size: 1.2rem;
+}
+.marca--peccinin .marca__nome {
+    color: #02539D;
+    font-size: 1.2rem;
+}
+.marca--tplink .marca__nome {
+    color: #49C5CD;
+    font-size: 1.2rem;
+}
+.marca--upled .marca__nome {
+    color: #253680;
+    font-size: 1.2rem;
+}
+.marca--furukawa .marca__nome {
+    color: #E43145;
+    font-size: 1.2rem;
+}
+.marca--magirius .marca__nome {
+    color: #063872;
+    font-size: 1.2rem;
+}
+.marca--telecam .marca__nome {
+    color: #0253A7;
+    font-size: 1.2rem;
+}
+.marca--samsung .marca__nome {
+    color: #13279B;
+    font-size: 1.2rem;
+}
+.marca--lg .marca__nome {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #E20B5A;
     font-size: 1.2rem;
 }
 
@@ -701,6 +738,20 @@
         padding: 3.5rem 1.5rem;
     }
 
+    .sobre__diferencial-item{
+        margin: 1rem 0;
+    }
+
+    .diferencial__icon{
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem;
+    }
+    
+    .diferencial__texto {
+        font-size: 0.7rem;
+    }
+    
     .sobre__diferenciais-mobile {
         display: flex;
     }
@@ -780,5 +831,22 @@
         width: 150px;
         font-size: 0.6em;
         padding: 0.5rem;
+    }
+    .sobre__diferenciais-mobile{
+        width: 100%;
+        gap: 15px;
+    }
+    .sobre__diferencial-item {
+        max-width: 40px;
+    }
+
+    .diferencial__icon{
+        width: 45px;
+        height: 45px;
+        font-size: 1.2em;
+    }
+
+    .diferencial__texto{
+        font-size: 0.65em;
     }
 }

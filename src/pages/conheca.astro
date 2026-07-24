@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import ImagePlaceholder from "../components/ImagePlaceholder.astro";
 
-import { whatsappHref } from '../consts';
+import { whatsappHref, DEPOIMENTOS } from '../consts';
 
 const timelineSteps = [
 	{
@@ -54,24 +54,6 @@ const diferenciais = [
 	"Garantia",
 	"Instalação limpa",
 	"Suporte rápido",
-];
-
-const depoimentos = [
-	{
-		texto: "Técnico muito prestativo na explicação e orientação sobre os equipamentos se colocando a disposição para tirar quaisquer dúvidas e ainda deu de brinde garantia de 6 meses na instalação. Responde whatsapp e ligações rapidamente, o que os diferencia de outras empresas do segmento.",
-		autor: "Vanessa",
-		bairro: "Franca, SP",
-	},
-	{
-		texto: "Instalação limpa e organizada, sem sujeira nenhuma. Recomendo bastante.",
-		autor: "Cliente Infotell",
-		bairro: "Franca, SP",
-	},
-	{
-		texto: "Suporte rápido sempre que precisei. Sinto segurança em indicar para amigos.",
-		autor: "Cliente Infotell",
-		bairro: "Franca, SP",
-	},
 ];
 ---
 
@@ -386,7 +368,7 @@ const depoimentos = [
 			</h2>
 			<div class="depoimentos__grid">
 				{
-					depoimentos.map((d) => (
+					DEPOIMENTOS.map((d) => (
 						<div class="depoimento__card">
 							<p class="depoimento__texto">"{d.texto}"</p>
 							<div>
