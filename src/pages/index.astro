@@ -26,11 +26,15 @@ const depoimentos = [
 
 const marcas = [
   { nome: "intelbras", classe: "marca--intelbras" },
-  { nome: "Hikvision", classe: "marca--hikvision" },
-  { nome: "Control ID", classe: "marca--controlid" },
-  { nome: "JFL", classe: "marca--jfl" },
-  { nome: "Garen", classe: "marca--garen" },
-  { nome: "Nice", classe: "marca--nice" },
+  { nome: "PPA", classe: "marca--ppa" },
+  { nome: "Pecinin", classe: "marca--pecinin" },
+  { nome: "TP-Link", classe: "marca--tplink" },
+  { nome: "Upled", classe: "marca--upled" },
+  { nome: "Furukawa", classe: "marca--furukawa" },
+  { nome: "Magirius", classe: "marca--magirius" },
+  { nome: "Telecam", classe: "marca--telecam" },
+  { nome: "Samsung", classe: "marca--samsung" },
+  { nome: "LG", classe: "marca--lg" },
 ];
 ---
 
@@ -274,6 +278,7 @@ const marcas = [
         <div class="servicos__imagem-central" aria-hidden="true">
           <div class="servicos__img-placeholder">
             <picture>
+              <source media="(max-width: 580px)" srcset="/images/index/secao-cameras-menor2.png" />
               <source media="(max-width: 768px)" srcset="/images/index/secao-cameras-menor.png" />
               <img
                 id="painel-imagem"

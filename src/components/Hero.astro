@@ -6,12 +6,18 @@
 
 interface Props {
     heroBgImgSrc?: string;
+    heroBgImgSrcMenor?: string;
+    sources?: Array<{ media: string; srcset: string }>;
     heroBgImgAlt?: string;
 	heroClass?: string;
     showArrow?: boolean;
 }
 
 const { heroBgImgSrc = "/images/index/camera-img-lateral.png",
+        sources = [
+            { media: "(max-width: 500px)", srcset: "/images/index/camera-img-lateral-menor2.png" },
+            { media: "(max-width: 768px)", srcset: "/images/index/camera-img-lateral-menor.png" },
+        ],
         heroBgImgAlt = "Câmera de segurança Intelbras instalada em fachada",
         heroClass = '',
         showArrow = true } = Astro.props;
@@ -22,10 +28,15 @@ const displayArrow = showArrow === false?'display: none;':'';
 <section class={`hero ${heroClass || ''}`} id="inicio" aria-label="Apresentação da Infotell">
     <div class="hero__bg-image">
     <picture>
-        <source
-            media="(max-width: 768px)"
-            srcset={heroBgImgSrc.replace(/(\.[^.]+)$/, '-menor$1')}
-        />
+        {
+            sources.map((source) => (
+                <source
+                    media={source.media}
+                    srcset={source.srcset}
+                />
+            ))
+        }
+        
         <img
             src={heroBgImgSrc}
             alt={heroBgImgAlt}

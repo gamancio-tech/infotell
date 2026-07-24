@@ -6,6 +6,7 @@
    ============================================================ */
 
 import { initScrollReveal } from '../utils/scrollReveal.js';
+import { whatsappHref } from '../../consts';
 
 'use strict';
 
@@ -15,7 +16,10 @@ import { initScrollReveal } from '../utils/scrollReveal.js';
 const SERVICOS_DATA = {
 	cameras: {
 		img: '/images/index/secao-cameras.png',
-		imgMenor: '/images/index/secao-cameras-menor.png',
+		sources: [
+            { media: "(max-width: 500px)", srcset: "/images/index/secao-cameras-menor2.png" },
+            { media: "(max-width: 768px)", srcset: "/images/index/secao-cameras-menor.png" },
+        ],
 		alt: 'Câmera de segurança Intelbras instalada',
 		tag: 'SOLUÇÃO COMPLETA',
 		titulo: 'Câmeras de Segurança',
@@ -32,7 +36,10 @@ const SERVICOS_DATA = {
 	},
 	alarmes: {
 		img: '/images/index/secao-alarmes.png',
-		imgMenor: '/images/index/secao-alarmes-menor.png',
+		sources: [
+            { media: "(max-width: 500px)", srcset: "/images/index/secao-alarmes-menor2.png" },
+            { media: "(max-width: 768px)", srcset: "/images/index/secao-alarmes-menor.png" },
+        ],
 		alt: 'Sistema de alarme residencial instalado',
 		tag: 'PROTEÇÃO ATIVA',
 		titulo: 'Alarmes',
@@ -46,7 +53,9 @@ const SERVICOS_DATA = {
 	},
 	'controle-acesso': {
 		img: '/images/index/secao-controle-acesso.png',
-		imgMenor: '/images/index/secao-controle-acesso-menor.png',
+		sources: [
+            { media: "(max-width: 768px)", srcset: "/images/index/secao-controle-acesso-menor.png" },
+        ],
 		alt: 'Sistema de controle de acesso',
 		tag: 'ACESSO INTELIGENTE',
 		titulo: 'Controle de Acesso',
@@ -61,7 +70,10 @@ const SERVICOS_DATA = {
 	},
 	'casa-inteligente': {
 		img: '/images/index/secao-casa-inteligente.png',
-		imgMenor: '/images/index/secao-casa-inteligente-menor.png',
+		sources: [
+            { media: "(max-width: 500px)", srcset: "/images/index/secao-casa-inteligente-menor2.png" },
+            { media: "(max-width: 768px)", srcset: "/images/index/secao-casa-inteligente-menor.png" },
+        ],
 		alt: '',
 		tag: 'SEGURANÇA SMART',
 		titulo: 'Casa Inteligente',
@@ -76,7 +88,10 @@ const SERVICOS_DATA = {
 	},
 	portoes: {
 		img: '/images/index/secao-portoes.png',
-		imgMenor: '/images/index/secao-portoes-menor.png',
+		sources: [
+            { media: "(max-width: 500px)", srcset: "/images/index/secao-portoes-menor2.png" },
+            { media: "(max-width: 768px)", srcset: "/images/index/secao-portoes-menor.png" },
+        ],
 		alt: '',
 		tag: 'PRATICIDADE E SEGURANÇA',
 		titulo: 'Automação de Portões',
@@ -91,7 +106,9 @@ const SERVICOS_DATA = {
 	},
 	eletrica: {
 		img: '/images/index/secao-eletrica.png',
-		imgMenor: '/images/index/secao-eletrica-menor.png',
+		sources: [
+            { media: "(max-width: 768px)", srcset: "/images/index/secao-eletrica-menor.png" },
+        ],
 		alt: '',
 		tag: 'PROJETOS ELÉTRICOS',
 		titulo: 'Instalações Elétricas',
@@ -108,7 +125,7 @@ let servicoAtivo = 'cameras';
 // =====================
 // Detecção de Mobile
 // =====================
-const mobileQuery = window.matchMedia('(max-width: 768px)');
+const mobileQuery = window.matchMedia('(max-width: 850px)');
 
 function isMobile() {
 	return mobileQuery.matches;
@@ -126,7 +143,7 @@ function gerarFeaturesHTML(features) {
 function gerarCtaHTML(titulo) {
 	return `
 		<div class="painel__cta">
-			<a href="https://wa.me/5516988750149?text=Olá,%20tenho%20interesse%20em%20${encodeURIComponent(titulo)}!"
+			<a href="${whatsappHref(`Olá, tenho interesse em ${encodeURIComponent(titulo)}!`)}"
 			   class="btn btn--laranja"
 			   target="_blank"
 			   rel="noopener noreferrer"
@@ -203,6 +220,37 @@ function ativarServicoDesktop(chave) {
 	renderizarPainelDesktop(chave);
 }
 
+function gerarSourcesHTML(sources = []) {
+	return sources
+		.map((s) => `<source media="${s.media}" srcset="${s.srcset}" />`)
+		.join('');
+}
+
+function gerarImagemMobileHTML(dados) {
+	if (Array.isArray(dados.sources) && dados.sources.length > 0) {
+		return `
+			<picture>
+				${gerarSourcesHTML(dados.sources)}
+				<img
+					class="painel-inline__img"
+					src="${dados.imgMenor || dados.img}"
+					alt="${dados.alt}"
+					loading="lazy"
+				/>
+			</picture>
+		`;
+	}
+
+	return `
+		<img
+			class="painel-inline__img"
+			src="${dados.imgMenor || dados.img}"
+			alt="${dados.alt}"
+			loading="lazy"
+		/>
+	`;
+}
+
 // =====================
 // Modo Mobile — Accordion de Serviços
 // =====================
@@ -240,12 +288,7 @@ function toggleAccordionMobile(chave, btn) {
 
 		// Renderizar conteúdo do painel inline
 		painelInline.innerHTML = `
-			<img
-				class="painel-inline__img"
-				src="${dados.imgMenor}"
-				alt="${dados.alt}"
-				loading="lazy"
-			/>
+			${gerarImagemMobileHTML(dados)}
 			<div class="painel-inline__conteudo">
 				<p class="painel__tag">${dados.tag}</p>
 				<h3 class="painel__titulo">${dados.titulo}</h3>
