@@ -13,13 +13,23 @@ export const DEPOIMENTOS = [
 		bairro: "Franca, SP",
 	},
 	{
-		texto: "Instalação limpa e organizada, sem sujeira nenhuma. Recomendo bastante.",
-		autor: "Cliente Infotell",
+		texto: "Trabalho bem realizado e atenção com cliente",
+		autor: "Marcos",
 		bairro: "Franca, SP",
 	},
 	{
-		texto: "Suporte rápido sempre que precisei. Sinto segurança em indicar para amigos.",
-		autor: "Cliente Infotell",
+		texto: "Muito satisfeito com os serviços feito e também o ótimo atendimento.",
+		autor: "Flávio Henrique Ramos Costa",
+		bairro: "Franca, SP",
+	},
+	{
+		texto: "Equipe muito bem equipada, com ferramentas muito boas, deixam tudo limpo, recomendo muito",
+		autor: "Danilo",
+		bairro: "Franca, SP",
+	},
+	{
+		texto: "Excelente empresa! Trabalha com transparência, execução do serviço contratado com vc excelência",
+		autor: "Luísa Pereira",
 		bairro: "Franca, SP",
 	},
 ];

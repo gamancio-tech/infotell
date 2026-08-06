@@ -1,0 +1,470 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { whatsappHref } from "../../consts.ts";
+---
+
+<BaseLayout title="Câmeras de Segurança — Infotell" description="Proteção inteligente para o que importa. Câmeras de segurança profissionais, monitoramento perimetral, gravação segura e projetos personalizados.">
+    <Navbar activePage="servicos" />
+    
+    <main class="cameras-page">
+        <!-- ===================== HERO ===================== -->
+        <header class="cameras-hero" aria-label="Apresentação da página de Câmeras de Segurança">
+            <div class="cameras-hero__bg">
+                <img src="/images/servicos/hero-bg.png" alt="Fachada de residência de luxo iluminada à noite" class="cameras-hero__bg-img" />
+                <div class="cameras-hero__overlay"></div>
+            </div>
+            
+            <div class="cameras-hero__container">
+                <span class="cameras-hero__tag">
+                    <span class="cameras-hero__tag-line"></span>
+                    CÂMERAS DE SEGURANÇA
+                </span>
+                <h1 class="cameras-hero__title">
+                    PROTEÇÃO INTELIGENTE<br />PARA O QUE IMPORTA.
+                </h1>
+                
+                <a href={whatsappHref("Olá! Gostaria de solicitar um projeto de câmeras de segurança.")} class="btn btn--laranja cameras-hero__btn" target="_blank" rel="noopener noreferrer">
+                    SOLICITAR PROJETO <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <!-- Rodapé decorativo com a linha de fluxo -->
+            <div class="cameras-hero__footer" aria-hidden="true">
+                <div class="cameras-hero__flowline">
+                    <span class="cameras-hero__flowline-label">PROTECTION FLOW</span>
+                    <div class="cameras-hero__flowline-graphic">
+                        <div class="cameras-hero__flowline-path"></div>
+                        <div class="cameras-hero__flowline-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===================== TRANQUILIDADE ===================== -->
+        <section class="tranquilidade" aria-label="Introdução sobre tranquilidade e proteção">
+            <div class="tranquilidade__container">
+                <h2 class="tranquilidade__title">
+                    VOCÊ NÃO COMPRA CÂMERAS.<br />
+                    <span class="tranquilidade__title--highlight">COMPRA TRANQUILIDADE.</span>
+                </h2>
+                
+                <!-- Elemento de linha de fluxo gráfica conectora -->
+                <div class="tranquilidade__connector" aria-hidden="true">
+                    <div class="tranquilidade__connector-line"></div>
+                    <div class="tranquilidade__connector-dot"></div>
+                </div>
+
+                <div class="tranquilidade__content">
+                    <p class="tranquilidade__text">
+                        Mais do que equipamentos, entregamos a tranquilidade de saber que tudo o que importa está protegido.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== MOMENTOS ===================== -->
+        <section class="momentos" aria-labelledby="momentos-titulo">
+            <div class="momentos__container">
+                <div class="momentos__info">
+                    <span class="section-tag section-tag--left">
+                        <span class="section-tag__line"></span>
+                        SUA VIDA, SEU PATRIMÔNIO
+                    </span>
+                    <h2 class="momentos__title" id="momentos-titulo">
+                        Momentos que merecem proteção em todos os detalhes.
+                    </h2>
+                    <p class="momentos__description">
+                        De residências a grandes empresas, projetamos soluções completas para proteger o que realmente importa.
+                    </p>
+                </div>
+                <div class="momentos__visual">
+                    <img src="/images/servicos/familia-quintal.png" alt="Família jogando futebol no quintal de uma casa de alto padrão à noite" class="momentos__img" />
+                    <div class="momentos__visual-overlay"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CONTROLE ===================== -->
+        <section class="controle" aria-labelledby="controle-titulo">
+            <div class="controle__container">
+                <div class="controle__visual">
+                    <div class="controle__image-wrapper">
+                        <img src="/images/servicos/celular-app.png" alt="Mão segurando smartphone mostrando aplicativo de segurança residencial" class="controle__img" />
+                        <!-- Notificação Interativa Flutuante -->
+                        <div class="smart-notification">
+                            <div class="smart-notification__icon-box">
+                                <i class="fa-solid fa-video" aria-hidden="true"></i>
+                            </div>
+                            <div class="smart-notification__body">
+                                <div class="smart-notification__header">
+                                    <span class="smart-notification__app-name">INFOTELL</span>
+                                    <span class="smart-notification__time">agora</span>
+                                </div>
+                                <p class="smart-notification__text">
+                                    Movimento detectado na Entrada Principal.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="controle__info">
+                    <span class="section-tag section-tag--left">
+                        <span class="section-tag__line"></span>
+                        TECNOLOGIA QUE CONECTA
+                    </span>
+                    <h2 class="controle__title" id="controle-titulo">
+                        Tudo sob controle. De onde você estiver.
+                    </h2>
+                    <p class="controle__description">
+                        Acompanhe tudo em tempo real, receba alertas inteligentes e tenha o controle total na palma da mão.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PLANTA 3D / AMBIENTES ===================== -->
+        <section class="planejada" aria-labelledby="planejada-titulo">
+            <div class="planejada__container">
+                <div class="planejada__info">
+                    <span class="section-tag section-tag--left">
+                        <span class="section-tag__line"></span>
+                        PROJETO INTELIGENTE
+                    </span>
+                    <h2 class="planejada__title" id="planejada-titulo">
+                        Proteção planejada em cada ambiente.
+                    </h2>
+                    <p class="planejada__description">
+                        Cada projeto é único. Desenvolvemos soluções personalizadas que integram tecnologia, arquitetura e inteligência.
+                    </p>
+                </div>
+
+                <div class="planejada__grid">
+                    <!-- Visualizador 3D com pins -->
+                    <div class="planejada__mockup">
+                        <div class="planejada__image-container">
+                            <img src="/images/servicos/planta-3d.png" alt="Planta 3D fotorrealista de uma residência com o posicionamento planejado das câmeras" class="planejada__img" />
+                            
+                            <!-- Pinos interativos de câmeras posicionados estrategicamente -->
+                            <div class="camera-pin camera-pin--1" style="top: 80%; left: 32%;">
+                                <div class="camera-pin__pulsar"></div>
+                                <div class="camera-pin__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="camera-pin camera-pin--2" style="top: 48%; left: 41%;">
+                                <div class="camera-pin__pulsar"></div>
+                                <div class="camera-pin__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="camera-pin camera-pin--3" style="top: 9%; left: 51%;">
+                                <div class="camera-pin__pulsar"></div>
+                                <div class="camera-pin__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="camera-pin camera-pin--4" style="top: 52%; left: 65%;">
+                                <div class="camera-pin__pulsar"></div>
+                                <div class="camera-pin__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="camera-pin camera-pin--5" style="top: 54%; left: 55%;">
+                                <div class="camera-pin__pulsar"></div>
+                                <div class="camera-pin__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="camera-pin camera-pin--6" style="top: 18%; left: 59%;">
+                                <div class="camera-pin__pulsar"></div>
+                                <div class="camera-pin__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Ambientes e Serviços -->
+                    <div class="planejada__features">
+                        <ul class="planejada__features-list">
+                            <li class="planejada-feature">
+                                <div class="planejada-feature__icon">
+                                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                                </div>
+                                <div class="planejada-feature__text">
+                                    <h3 class="planejada-feature__name">Câmeras Externas</h3>
+                                    <p class="planejada-feature__desc">Monitoramento perimetral</p>
+                                </div>
+                            </li>
+                            <li class="planejada-feature">
+                                <div class="planejada-feature__icon">
+                                    <i class="fa-solid fa-house-laptop" aria-hidden="true"></i>
+                                </div>
+                                <div class="planejada-feature__text">
+                                    <h3 class="planejada-feature__name">Câmeras Internas</h3>
+                                    <p class="planejada-feature__desc">Ambientes estratégicos</p>
+                                </div>
+                            </li>
+                            <li class="planejada-feature">
+                                <div class="planejada-feature__icon">
+                                    <i class="fa-solid fa-key" aria-hidden="true"></i>
+                                </div>
+                                <div class="planejada-feature__text">
+                                    <h3 class="planejada-feature__name">Controle de Acesso</h3>
+                                    <p class="planejada-feature__desc">Entradas e portões</p>
+                                </div>
+                            </li>
+                            <li class="planejada-feature">
+                                <div class="planejada-feature__icon">
+                                    <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+                                </div>
+                                <div class="planejada-feature__text">
+                                    <h3 class="planejada-feature__name">Integração Inteligente</h3>
+                                    <p class="planejada-feature__desc">Tudo conectado</p>
+                                </div>
+                            </li>
+                            <li class="planejada-feature">
+                                <div class="planejada-feature__icon">
+                                    <i class="fa-solid fa-server" aria-hidden="true"></i>
+                                </div>
+                                <div class="planejada-feature__text">
+                                    <h3 class="planejada-feature__name">Gravação Segura</h3>
+                                    <p class="planejada-feature__desc">Dados protegidos 24/7</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== EXCELÊNCIA (INFRA) ===================== -->
+        <section class="excelencia" aria-labelledby="excelencia-titulo">
+            <div class="excelencia__container">
+                <div class="excelencia__info">
+                    <span class="section-tag section-tag--left">
+                        <span class="section-tag__line"></span>
+                        INFRAESTRUTURA QUE NINGUÉM VÊ
+                    </span>
+                    <h2 class="excelencia__title" id="excelencia-titulo">
+                        A excelência está nos detalhes que ninguém vê.
+                    </h2>
+                    <p class="excelencia__description">
+                        Instalação profissional, cabeamento estruturado e organização impecável para máxima performance e segurança.
+                    </p>
+                </div>
+                <div class="excelencia__visual">
+                    <img src="/images/servicos/rack-infra.png" alt="Interior detalhado de um rack de servidores perfeitamente organizado com cabos azul e amarelo" class="excelencia__img" />
+                    <div class="excelencia__visual-overlay"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== EQUIPAMENTOS (CARROSSEL) ===================== -->
+        <section class="equipamentos" aria-labelledby="equipamentos-titulo">
+            <div class="equipamentos__container">
+                <span class="section-tag">
+                    <span class="section-tag__line"></span>
+                    TECNOLOGIA DE ALTO PADRÃO
+                </span>
+                <h2 class="equipamentos__title" id="equipamentos-titulo">
+                    Equipamentos selecionados para máxima performance.
+                </h2>
+                <p class="equipamentos__description">
+                    Trabalhamos com as melhores marcas do mercado mundial.
+                </p>
+
+                <!-- Slider Container -->
+                <div class="equipamentos__slider-wrapper">
+                    <button class="equipamentos__nav-btn equipamentos__nav-btn--prev" aria-label="Equipamento anterior">
+                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="equipamentos__slider">
+                        <!-- Hikvision Card -->
+                        <article class="equip-card">
+                            <div class="equip-card__podium">
+                                <img src="/images/servicos/equip-hikvision.png" alt="Câmera Bullet Hikvision ColorVu 4K" class="equip-card__img" />
+                                <div class="equip-card__podium-base"></div>
+                            </div>
+                            <div class="equip-card__info">
+                                <h3 class="equip-card__brand">HIKVISION</h3>
+                                <p class="equip-card__model">ColorVu 4K</p>
+                            </div>
+                        </article>
+
+                        <!-- Axis Card -->
+                        <article class="equip-card">
+                            <div class="equip-card__podium">
+                                <img src="/images/servicos/equip-axis.png" alt="Câmera Dome Axis Q3538-LVE" class="equip-card__img" />
+                                <div class="equip-card__podium-base"></div>
+                            </div>
+                            <div class="equip-card__info">
+                                <h3 class="equip-card__brand">AXIS</h3>
+                                <p class="equip-card__model">Q3538-LVE</p>
+                            </div>
+                        </article>
+
+                        <!-- Dahua Card -->
+                        <article class="equip-card">
+                            <div class="equip-card__podium">
+                                <img src="/images/servicos/equip-dahua.png" alt="Gravador de Vídeo Dahua NVR 4.0" class="equip-card__img" />
+                                <div class="equip-card__podium-base"></div>
+                            </div>
+                            <div class="equip-card__info">
+                                <h3 class="equip-card__brand">DAHUA</h3>
+                                <p class="equip-card__model">NVR 4.0</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <button class="equipamentos__nav-btn equipamentos__nav-btn--next" aria-label="Próximo equipamento">
+                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="equipamentos__actions">
+                    <a href="#contato" class="btn btn--outline-laranja">
+                        CONHECER TECNOLOGIAS <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PROJETOS REAIS ===================== -->
+        <section class="projetos" aria-labelledby="projetos-titulo">
+            <div class="projetos__container">
+                <span class="section-tag section-tag--left">
+                    <span class="section-tag__line"></span>
+                    PROJETOS REAIS
+                </span>
+                <h2 class="projetos__title" id="projetos-titulo">
+                    Histórias reais. Resultados que falam por si.
+                </h2>
+
+                <div class="projetos__grid">
+                    <!-- Project Card 1 -->
+                    <article class="projeto-card">
+                        <div class="projeto-card__visual">
+                            <img src="/images/servicos/proj-alphaville.png" alt="Fachada da Residência Alphaville integrada" class="projeto-card__img" />
+                        </div>
+                        <div class="projeto-card__content">
+                            <span class="projeto-card__tag">RESIDÊNCIA ALPHAVILLE</span>
+                            <p class="projeto-card__desc">
+                                Projeto completo de segurança integrada para residência de alto padrão.
+                            </p>
+                            <a href={whatsappHref("Olá! Gostaria de saber mais sobre o projeto de segurança da Residência Alphaville.")} class="projeto-card__link" target="_blank" rel="noopener noreferrer">
+                                Ver projeto <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 2 -->
+                    <article class="projeto-card">
+                        <div class="projeto-card__visual">
+                            <img src="/images/servicos/proj-logistica.png" alt="Fachada da empresa de logística com segurança instalada" class="projeto-card__img" />
+                        </div>
+                        <div class="projeto-card__content">
+                            <span class="projeto-card__tag">EMPRESA DE LOGÍSTICA</span>
+                            <p class="projeto-card__desc">
+                                Solução corporativa com monitoramento 24h e controle de acesso inteligente.
+                            </p>
+                            <a href={whatsappHref("Olá! Gostaria de saber mais sobre o projeto corporativo de segurança para empresas de logística.")} class="projeto-card__link" target="_blank" rel="noopener noreferrer">
+                                Ver projeto <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Slider Dots -->
+                <div class="projetos__dots" aria-hidden="true">
+                    <span class="projetos__dot projetos__dot--active"></span>
+                    <span class="projetos__dot"></span>
+                    <span class="projetos__dot"></span>
+                    <span class="projetos__dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== COMO FUNCIONA (LINHA DO TEMPO) ===================== -->
+        <section class="funcionamento" aria-labelledby="funcionamento-titulo">
+            <div class="funcionamento__container">
+                <span class="section-tag">
+                    <span class="section-tag__line"></span>
+                    COMO FUNCIONA
+                </span>
+                <h2 class="funcionamento__title" id="funcionamento-titulo">
+                    Um processo simples.<br />Um resultado perfeito.
+                </h2>
+
+                <div class="funcionamento__timeline">
+                    <!-- Linha horizontal conectora -->
+                    <div class="funcionamento__line" aria-hidden="true"></div>
+
+                    <!-- Passo 1 -->
+                    <div class="funcionamento-step">
+                        <div class="funcionamento-step__header">
+                            <span class="funcionamento-step__number">01</span>
+                            <div class="funcionamento-step__icon">
+                                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h3 class="funcionamento-step__title">Diagnóstico</h3>
+                        <p class="funcionamento-step__desc">Entendemos sua necessidade</p>
+                    </div>
+
+                    <!-- Passo 2 -->
+                    <div class="funcionamento-step">
+                        <div class="funcionamento-step__header">
+                            <span class="funcionamento-step__number">02</span>
+                            <div class="funcionamento-step__icon">
+                                <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h3 class="funcionamento-step__title">Projeto Personalizado</h3>
+                        <p class="funcionamento-step__desc">Desenvolvemos a solução ideal para você</p>
+                    </div>
+
+                    <!-- Passo 3 -->
+                    <div class="funcionamento-step">
+                        <div class="funcionamento-step__header">
+                            <span class="funcionamento-step__number">03</span>
+                            <div class="funcionamento-step__icon">
+                                <i class="fa-solid fa-wrench" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h3 class="funcionamento-step__title">Instalação Profissional</h3>
+                        <p class="funcionamento-step__desc">Execução com padrão de excelência</p>
+                    </div>
+
+                    <!-- Passo 4 -->
+                    <div class="funcionamento-step">
+                        <div class="funcionamento-step__header">
+                            <span class="funcionamento-step__number">04</span>
+                            <div class="funcionamento-step__icon">
+                                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <h3 class="funcionamento-step__title">Suporte Contínuo</h3>
+                        <p class="funcionamento-step__desc">Acompanhamento e manutenção</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CALL TO ACTION (CONVERSÃO) ===================== -->
+        <section class="cameras-cta" aria-labelledby="cta-titulo">
+            <div class="cameras-cta__bg">
+                <img src="/images/servicos/hero-bg.png" alt="Residência de luxo" class="cameras-cta__bg-img" />
+                <div class="cameras-cta__overlay"></div>
+            </div>
+
+            <div class="cameras-cta__container">
+                <span class="section-tag">
+                    <span class="section-tag__line"></span>
+                    VAMOS CONVERSAR?
+                </span>
+                <h2 class="cameras-cta__title" id="cta-titulo">
+                    Vamos projetar a proteção<br />ideal para o seu patrimônio.
+                </h2>
+                
+                <a href={whatsappHref("Olá! Gostaria de conversar com um consultor sobre o projeto de segurança para o meu patrimônio.")} class="btn btn--laranja cameras-cta__btn" target="_blank" rel="noopener noreferrer">
+                    SOLICITAR PROJETO <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>
